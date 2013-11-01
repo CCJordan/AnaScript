@@ -1,0 +1,133 @@
+% Kopfzeile beim Kapitelanfang:
+\fancypagestyle{plain}{
+%Kopfzeile links bzw. innen
+\fancyhead[L]{\calligra\Large Vorlesung Nr. 4}
+%Kopfzeile rechts bzw. außen
+\fancyhead[R]{\calligra\Large 24.10.2013}
+}
+%Kopfzeile links bzw. innen
+\fancyhead[L]{\calligra\Large Vorlesung Nr. 4}
+%Kopfzeile rechts bzw. außen
+\fancyhead[R]{\calligra\Large 24.10.2013}
+% **************************************************
+%
+\subsection{Folgerungen}
+\enum{
+\item $\forall x \in \K : x \cdot 0 = 0$
+\item $x \cdot y = 0 \Leftrightarrow x = 0 \vee y = 0$
+\item $(-x) \cdot x = -x\cdot y$ insbesondere $(-1) \cdot y = -y$
+}
+\subsection*{Allgemeine A und K-Gesetze}
+$x_1 + \cdots + x_n := (...((x_1 + x_2) + x_3) + ...)$
+Wiederholte Anwendung des A- und K-Gesetzes zeigt: Das Ergebnis ist unabhängig von Klammerung ($\to$ Klammern weglassen) und Reihenfolge.\\
+Ebenso für Produkte.\\
+\subsubsection*{Potenzen}
+$x\in \K$ Für $n \in \N$ setze $x^n := \underbrace{x\cdot ... \cdot x}_{\text{n Faktoren}}$, $x^0 = 1$\\
+Falls $x \neq 0$: $x^{-n} := (x^{-1})^n$\\
+Damit $x^{-n} = (x^{-1})^n$\\
+Regeln $x,y \in \K, n, m \in \N_0$
+$x^n\cdot x^m = x^{m+n}, x^n\cdot y^n = (x\cdot y)^n, (x^n)^m = x^{m\cdot n}$\\
+Falls $x,y \neq 0$ gelten diese Regeln auch für alle $n, m \in \Z$
+\section*{Beispiele}
+$\R$ ist Körper, ebenso $\Q$ mit den üblichen Operationen.\\
+$\Z$ nicht, da nur $+1$ und $-1$ multiplikative Inverse haben.\\
+Beispiel eines Endlichen Körpers:
+$\mathcal{F}_2 = \{0,1\}$ mit Operationen wie folgt:\\
+% Tabelle + und *
+\section*{II. Anordnungsaxiome}
+$\R$ enthält eine Teilmenge von Elementen, die als positiv ausgezeichnet sind. Wobei gelten:\\
+\enum {
+\item[A1] Jedes $x \in \R$ genügt genau einer der Beziehungen $x > 0$, $x = 0$ oder $x<0$.
+\item[A2] $x>0 \wedge y > 0 \Rarr x + y > 0, x \cdot y > 0$
+}
+\section{Folgerungen}
+\enum {
+\item $x< 0 \Leftrightarrow -x > 0$
+\item $\forall x,y \in \R$ gilt genau eine der Relationen $x > y, x = y, x < y$
+\item $x < y \wedge y < z \Rarr x < z$ (Transitivität)
+\item $x < y, z \in \R \Rarr x + z < y + z$
+\item $x < y \Leftrightarrow -x < -x$
+\item $x < y \wedge a < b \Rarr x + a < y + b$
+\item $x < y \wedge a > 0 \Rarr a\cdot x < a \cdot y$\\
+      $x < y \wedge a < 0 \Rarr a\cdot x > a \cdot y$
+\item $0 ≤ x < y, 0 ≤ a < b \Rarr a \cdot x < b \cdot y$
+\item $x \neq 0 \Rarr x^2 > 0$
+}
+\subsubsection*{Beweise}
+\enum {
+\item $x < 0 \overset{Def.}{\Leftrightarrow} 0 > x \overset{Def.}{\Leftrightarrow} 0-x > 0$
+\item aus Folgerung 3
+\item $z-x = (z-y) + (x-y)) >0$
+\item Bilde Differenz
+\item Bilde Differenz
+\item $(y + b) - (x + a) = (y - x) + (b - a) > 0$
+\item $a\cdot y - a\cdot x = a(x-y) > 0$ Gegenrichtung analog
+\item Übung
+\item Falls $x > 0 \Rarr x^2 > 0$\\
+Falls $x < 0 \Rarr [7) mit y = 0, a = x] x^2 > 0$
+}
+\section{Definition}
+Ein Körper $\K$ in dem eine Teilmenge von Elementen als positiv ausgezeichnet ist, i. Z. x > 0, sodass (A1) + (A2) gelten, heißt angeordneter Körper.\\
+Folgerungen 3.4 gelten in jedem angeordneten Körper!
+$\R, \Q sind angeordnete Körper$\\
+$\mathcal{F}_2$ nicht. im $\mathcal{F}_2$ gilt $1 + 1 = 0$\\
+Annahme: $\mathcal{F}_2$ angeordnet $\Rarr 1 > 0 \Rarr 1 + 1 > 0$\\
+\section{Bernoulli Ungleichung}
+Sei $x \in \R, x > -1$ und $n \in \N_0 \Rarr $ $$(1+x)^n ≥ 1 + n \cdot x$$
+\subsection*{Beweis}
+Induktion nach $n$\\
+Induktionsanfang: $n = 0:\\
+(1+x)^0 = 1 = 1 + 0 \cdot x$\\
+Induktionsschritt: $n\to n+1:\\
+(1+x)^{n+1} = (1 + x) \cdot (1+x)^n ≥ (1+x) \cdot (1+ n\cdot x) \\
+= 1 + (n+1) \cdot x + n \cdot x^2 ≥ 1 + (n + 1) \cdot x$ \qed
+\section{Definition: Betrag}
+Sei $x\in \R$.\\
+$\left\|x\right\| = \left\langle\begin{array}{l l}
+x &  falls x ≥ 0\\
+-x  &  falls x < 0
+\end{array} \right.$
+\section{Satz}
+\enum {
+\item $\left\|x\right\| ≥ 0$ wobei $\left\|x\right\| \Leftrightarrow x = 0$
+\item $\left\|x \cdot y\right\| = \left\|x\right\| \cdot \left\|y\right\|$
+\item $\left\|\frac{x}{y}\right\| = \frac{\left\|x\right\|}{\left\|y\right\|}$ falls $y \neq 0$
+\item $\left\|x + y\right\| ≤ \left\|x\right\| + \left\|y\right\|$ (Dreiecksungleichung)
+}
+\subsection*{Beweise}
+\enum {
+\item klar.
+\item $|xy| \in \{ \pm xy\}, |x| \cdot |x| \in \{ \pm x \cdot y \}$
+\item $x = \frac{x}{y} \cdot y \Rarr \left|x\right| \cdot \left|\frac{x}{y}\right| \cdot \left|y\right| \Rarr$ Beh. 
+\item $\pm x ≤ \left|x\right|, \pm y ≤ \left|y\right| \Rarr \pm (x+y) ≤ \left|x\right| + \left|y\right| \Rarr$ Beh.
+}
+\section*{Intervalle}
+Seien $a, b \in \R$, $a ≤ b$\\
+$\begin{array}{l l}
+[a, b] &:= \{x \in \R: a ≤ x ≤ b\}\\
+(a, b) &:= \{x \in \R: a< x < b \}\\
+\left[ a, b\right) &:= \{x \in \R: a ≤ x < b\}\\
+\left(a, b\right] &:= \{x \in \R: a < x ≤ b\}\\
+\left[ a, \infty\right) &:= \{x \in \R: x ≥ a\}\\
+\left(-\infty, a\right] &:= \{x \in \R: x ≤ a\}\\
+\end{array}$
+\section*{III. Vollständigkeitsaxiom}
+\section{Definition Beschränkte Mengen}
+$M \subseteq \R$ heißt nach oben [unten] beschränkt $ \Leftrightarrow $ Wenn es ein $s$ aus $\R$ gibt, sodass alle Zahlen aus M kleiner [größer] sind als $M$.\\
+$s$ heißt dann obere [untere] Schranke von M.\\
+Liegt die obere [untere] Schranke in $m \in M$, so nennt man sie Maximum [Minimun] von $M$.\\
+$M$ heißt beschränkt $\Rarr$ M ist nach oben und unten beschränkt.
+\subsection{Beispiel}
+\enum {
+\item $M = [0,1] \Rarr M$ ist beschränkt. Jedes $s ≥ 1$ ist eine obere Schranke, jedes $t ≤ 0$ ist eine untere Schranke von $M$.\\
+1 ist Maximum von $M$, 0 ist Minimum von $M$.
+\begin{description}
+\item[\textit{m = max(M)}] schreiben wir für das Maximum von $M$.
+\item[\textit{m = min(M)}] schreiben wir für das Minumum von $M$.
+\end{description}
+\item $M = [0,1)$ $M$ hat kein Maximum.\\
+Kein $m \in M$ ist obere Schranke von $M$
+da $m < \frac{1}{2} (m+1) < 1 \forall m \in M$
+}
+\desc{Beachte}{$M$ hat höchstens ein Maximum / Minimum!\\
+Denn: Seien $m\neq m'$ Maxima von $M$, etwa $m < m'$ $\Rarr$ $m$ ist keine obere Schranke von $M$.}

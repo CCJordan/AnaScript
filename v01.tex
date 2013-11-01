@@ -1,0 +1,100 @@
+% Kopfzeile beim Kapitelanfang:
+\fancypagestyle{plain}{
+%Kopfzeile links bzw. innen
+\fancyhead[L]{\calligra\Large Vorlesung Nr. 1}
+%Kopfzeile rechts bzw. außen
+\fancyhead[R]{\calligra\Large 14.10.2013}
+}
+%Kopfzeile links bzw. innen
+\fancyhead[L]{\calligra\Large Vorlesung Nr. 1}
+%Kopfzeile rechts bzw. außen
+\fancyhead[R]{\calligra\Large 14.10.2013}
+% **************************************************
+%
+\chapter{Logik und Mengen}
+\section*{Aussagen}
+Eine Mathematische Aussage ist ein sprachlicher Ausdruck, dem genau einer der Wahrheitswerte "wahr" (w) oder "falsch" (f) zugeordnet werden kann. Eine Aussage im Mathematischen Sinne stellt eine objektive Tatsache dar.
+\bsp
+\textit{5 = 3 + 2} ist eine wahre Aussage.\\
+\textit{2 $\cdot$ 3 = 9} ist eine falsche Aussage.\\
+\textit{Das Essen ist gut gewürzt.} ist gar keine Aussage, da es sich hierbei nicht um ein objektive Faktum handelt.
+\section{Verknüftung von Aussagen}
+Liefert neue Aussagen. Seien $P, Q$ Aussagen.
+\begin{enumerate}
+\item \underline{Konjunktion}: $P \wedge Q$ ($P$ und $Q$)\\
+Wahr genau dann, wenn P und Q wahr sind.
+\item \underline{Disjunktion}: $P \vee Q$ ($P$ oder $Q$)\\
+Wahr genau dann, wenn mindestens eine der Aussagen wahr ist.
+\item \underline{Negation}: $\neg P$\\
+Wahr g.d.w. $P$ falsch
+\item \underline{Implikation}: $P \to Q$ (P impliziert Q, aus P folgt Q)\\
+falsch g.d.w. P wahr und Q falsch, sonst wahr.\\
+Bemerkung: Ist P falsch, so ist $P \to Q$ stets wahr.
+\item \underline{Äquivalenz}: $P \leftrightarrow Q$ :=  $P \to Q \wedge Q \to P$ ($P$ äquivalent zu $Q$)\\
+wahr g.d.w. $P$ und $Q$ den gleichen Wahrheitswert haben.
+\end{enumerate}
+% Wahrheitstabelle einfügen.
+\section{Bezeichnung: 'semantische Äquivalenz'}
+Zwei Aussagen $P, Q$, welche die gleiche Wahrheitstabelle haben, heißen semantisch äquivalent $P \equiv Q$\\
+Bsp.
+\begin{enumerate}
+\item $\neg(\neg P) \equiv P$ denn % Wahrheitstabelle
+\item De Morgan'sche Gesetze:\\
+$\neg (P \wedge Q) \equiv \not P \vee \neg Q$\\
+$\neg (P \vee Q) \equiv \not P \wedge \neg Q$\\
+\item Distributivgesetze:\\
+$P \wedge (Q \vee R) \equiv (P \wedge Q) \vee (P \wedge R)$\\
+$P \vee (Q \wedge R) \equiv (P \vee Q) \wedge (P \vee R)$\\
+\end{enumerate}
+\subsection*{Mengen}
+Def. nach G. Cantor Eine Menge ist eine Zusammenfassung bestimmter wohlunterschiedener Objekte unseres Denkens zu einem Ganzen. Diese Objekte heißen die Elemente der Menge.\\
+Def. ist vage.\\
+Pragmatischer Standpunkt: Eine Menge ist gebildet, wenn feststeht welche Elemente dazugehören.\\
+\subsection*{Schreibweisen}
+$x \in A$ heißt $x$ ist Element der Menge $A$\\
+$x \notin A$ falls $x$ nicht Element der Menge $A$\\
+$A \subseteq B$ (A teilmenge von B), falls jedes Element aus A auch in B liegt.\\
+Entsprechend $B \supseteq A (B Obermenge von A)$\\
+\begin{itemize}
+\item $A = B$ falls $A \subseteq B$ und $B \supseteq A$
+\item strikte Inklusion $A \subset B$ A ist Teilmenge von $B$ g.d.w. ($A \neq B$)
+\end{itemize}
+
+\subsection{Beschreibung von Mengen}
+\begin{enumerate}
+\item Durch Aufzählung der Elemente\\
+Bsp.: $A = \{Rot, Blau\}$, $A = \{1, \{1, 2\}, \{1, 2,\{1, 2\} \}\}$\\
+$\mathbb{N} = \{1, 2, 3\}$ Menge der natürlichen Zahlen\\
+$\mathbb{N}_0 = \{0, 1, 2, 3\}$\\
+$\mathbb{Z} = \{0, \pm 1, \pm 2\}$
+\item durch eine charakteristische Eigenschaft\\
+$A = \{n \in \mathbb{Z}: N ist gerade\} = \{n \in \mathbb{Z}: \text{es gibt} k \in Z \text{ mit } n = 2k\}$
+\end{enumerate}
+\section{Definition Primzahlen}
+Seien $n, m \in \mathbb{Z}$. m heißt Teiler von n, kurz $m | n$ falls es ein $k \in \mathbb{Z}$ gibt mit $n = k \cdot m$. Sonst $m \not | n$.
+\section{Mengenoperationen}
+Seien $A, B$ Mengen.
+\begin{description}
+\item[Vereinigung der Mengen $A$ und $B$]{$A \cup B := \{x: x \in A \vee x\in B\}$\\
+Die Vereinigung aus $A$ und $B$ besteht aus den Elementen die in $A$ oder $B$ enthalten sind.}
+\item[Durchschnitt der Mengen $A$ und $B$] {$A \cap B := \{x: x \in A \wedge x \in B\}$\\
+Der Durchschnitt von $A$ und $B$ besteht aus den Elementen, die sowohl in $A$ als auch in $B$ enthalten sind.}
+\item[Differenzmenge]{$A \setminus B := \{x: x \in A \wedge x \notin B\}$\\
+Die Differenzmenge von $A$ und $B$ besteht aus jenen Elementen, die in $A$ jedoch nicht in $B$ enthalten sind.}
+\end{description}
+\section{Distributivgesetze}
+\begin{enumerate}
+\item $A \cap (B \cup C) = (A \cap B) \cup (A \cap C)$
+\item $A \cup (B \cap C) = (A \cup B) \cap (A \cup C)$
+%Beweis
+\end{enumerate}
+\section{Kartesisches Produkt von Mengen}
+Seien $A, B$ Mengen.\\
+$A \times B := {(a, b): a \in A, b\in B}$ Mengen aller geordneten Paare $(a,b)$ im Gegensatz zu $\{a, b\} = \{b,a\}$ kommt es bei $(a, b)$ auf die Reihenfolge an.
+\section{Bezeichnung}
+Sei A eine Menge.
+\begin{enumerate}
+\item $\mathcal{P}(A) =\{B: \subseteq A\}$ Potenzmenge von $A$
+\item Ist $A$ endlich, so bezeichnet $\vert A \vert$ die Anzahl der Elemente von $A$ (Mächtigkeit von $A$)\\
+Falls A unendlich schreibe (etwas lax) $\vert A \vert = \infty$
+\end{enumerate}

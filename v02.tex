@@ -1,0 +1,162 @@
+% Kopfzeile beim Kapitelanfang:
+\fancypagestyle{plain}{
+%Kopfzeile links bzw. innen
+\fancyhead[L]{\calligra\Large Vorlesung Nr. 2}
+%Kopfzeile rechts bzw. außen
+\fancyhead[R]{\calligra\Large 17.10.2013}
+}
+%Kopfzeile links bzw. innen
+\fancyhead[L]{\calligra\Large Vorlesung Nr. 2}
+%Kopfzeile rechts bzw. außen
+\fancyhead[R]{\calligra\Large 17.10.2013}
+% **************************************************
+\chapter{Natürliche Zahlen und vollständige Induktion}
+Vollständige Induktion ist ein Beweisprinzip für Aussagen über natürliche Zahlen.\\
+Es beruht auf dem:
+\section{Induktionsaxiom}
+Sei $M \subseteq \N$ mit
+\enum{
+\item $1 \in M$
+\item Für alle $n \in \N$ gilt: $n \in M \Rarr n + 1 \in M$
+}
+Dann ist $M = \N$\\
+\bem Axiome sind Grundlegende Aussagen in einer Theorie, die ohne Beweis vorausgesetzt werden.
+\section{Satz: Prizip der vollständigen Induktion}
+Zu jedem $n \in \N$ sei eine Aussage $A(n)$ gegeben. Es gelte
+\begin{enumerate}
+\item {A(1) ist wahr ( {Induktionsanfang})}
+\item Für alle $n \in \N$ gilt: $A(n) \Rarr A(n+1)$
+\end{enumerate}
+Dann ist $A(n)$ wahr für alle $n \in \N$\\
+"Dominoeffekt" $A(1)$ ist wahr $\Rarr A(2)$ ist wahr.\\
+M erfüllt (1) und (2) das Induktionsaxiom. Also ist $M = \N$\\
+%
+\\
+%
+Verschiebung des Induktionsanfangs:\
+Seien A(n) Aussage für $n \in \Z, n \geq n_0$ ($n_0 \in \Z$ fest)\\
+Dann gilt das Prinzip der vollständigen Induktion entsprechend mit Induktionsanfang bei $n_0$ statt bei 1.
+\section*{Summen und Produktzeichen}
+Gegeben seien reelle Zahlen $a_n$ für $m \leq k \leq n$ wobei $m,n \in \Z, m \leq n$ Man setzt 
+$$\sum_{k=m}^{n} a_k := a_m + a_{m+1} + ... + a_{n} $$
+und 
+$$ \prod_{k = m}^{n} a_k := a_m \cdot a_{m+1} \cdot ... \cdot a_n $$
+Konvention für $m > n$:\\
+$\sum_{k=m}^{n} a_k = 0$
+und
+$\prod_{k=m}^{n} a_k = 1$
+\subsubsection*{Beispiel: Die Arithmetische Reihe}
+$\sum_{k = 1}^{n} = 1 + 2 + ... n = ?$\\
+Die Idee von Gauß für n = 100\\
+$1 + ... 100 = (1 + 100) + (2 + 99) + ... (50 + 51) = 101 \cdot 50 = 5050$\\
+\Satz
+$\sum_{k=1}^{n} k = \frac{1}{2} \cdot n \cdot (n+1)$ für alle $n \in \N$\\
+Beweis mit vollständiger Induktion:\\
+$A(n) = \sum_{k=1}^{n} k = \frac{1}{2} \cdot n \cdot (n + 1)$
+% römische Zahlen
+\begin{enumerate}
+\item Induktionsanfang $n = 1$\\
+A(1) ist wahr, denn $\sum_{k=1}^{1} k = \frac{1}{2} \cdot 1 \cdot 2$ \ok
+\item Induktionsschluss $n \to n + 1$\\
+Es sei A(n) wahr, das heißt, es gelte:\\
+$\sum_{k = 1}^{n} = \frac{n (n+1)}{2}$ (Induktionsvoraussetzung)\\
+$\Rarr \sum_{k = 1}^{n + 1} k = \sum_{k = 1}^{n} + (n + 1) \underset{I.V.}{=} \frac{1)}{2} \cdot n \cdot (n+1) + (n+1) = (n+1)(\frac{n}{2} + 1) = \frac{1}{2} (n+2) \cdot (n+1)$
+\Rarr A(n+1) ist wahr. Mit vollständiger Induktion folgt die Behauptung.
+\end{enumerate}
+\bem zum Rechnen mit Summen (analog für Produkte):
+$\sum_{K = 1}^{n + 1} a_k = \sum_{k = 1}^{n} a_k + a_{n+1}$\\
+für $m \in \N$: $\sum_{k=1}^{m+n} a_k = \sum_{k = 1}^{n} a_k + \sum_{k = n + 1}^{m} a_k$
+\subsection*{Beispiel 2: Geometrische Reihe}
+Potenzen: Sei $x\in \R, n \in \N_0$ dann $x^n := x_1 \cdot x_2 \cdot ... \cdot x_n = \prod_{k=1}^{n} x$
+Indexsumme $x^0 = 1$
+\Satz {Gemetrische Summenformel}
+Für $x \in \R\setminus \{1\}$ und $n \in \N_0$ gilt:
+$$\sum_{k = 0}^{n} x^k = \frac{1 - x^{n+1}}{1 - x}$$
+\subsubsection*{Beweis mit vollständiger Induktion}
+% Römische Zahlen
+\begin{enumerate}
+\item Ind. Anfang $n = 0$: $x^0 = \frac{1 - x}{1 - x} = 1$
+\item Ind. Schluss $n \to n + 1$\\
+I.V.: $\sum_{k = 0}^{n} x^k = \frac{1 - x^{n+1}}{1 - x}$\\
+\Rarr $\sum_{k = 0}^{n + 1} x^k = \sum_{k = 0}^{n} x^k + x^{n+1} = \frac{1 - x^{n+1}}{1 - x} + x^{n+1} 
+= \frac{1 - x^{n+1} + (1-x)\cdot x^{n+1}}{1 - x} = \frac{1 - x^{n+2}}{1 - x}$
+\end{enumerate}
+\qed\\
+Ein Beweis mit vollständiger Induktion setzt voraus, dass man die zu beweisende Identität bereits kennt, bzw. sie vermutet.\\
+Eine solche Vermutung gewinnt man z.B. durch Berechnungen für kleine Werte von n.
+\section{Definition: Fakultät}
+Für $n \in \N_0$ setze $n! := \prod_{k=1}^{n} k = 1 \cdot 2 \cdot ... \cdot n$\\
+Also $0! = 1$, $1! = 1$, $2! = 3$, $3! = 6$\\
+$n! = (n+1)! \cdot n$\\
+$n!$ wächst sehr schnell. z.B. $13! \approx 6,2 \times 10^9$\\
+Es gibt dafür eine einfache Formel analog zur arithmetischen Summenformel.\\
+\Satz
+Die Anzahl der möglichen Anordnungen (auch Permutationen) der Elemente einer Menge M mit $|M| = n$ ist $n!$.
+Beweis (bezeichne die Elemente 1, 2, ... n):
+\enum{
+\item Induktionsanfang: n = 1\\
+1 = 1! eine Mögliche Anordnung. \ok
+\item Induktionsschluss $n \to n + 1$\\
+Besetze zunächst Position 1 dafür gibt es $n + 1$ Möglichkeiten.\\
+Sei $P_k := \{$Permutationen von $1, 2, ... n + 1$ mit $k$ an Position 1\}\\
+Nach I.V. ist $|P_k| = n!$ (Anzahl der Möglichkeiten die Stellen 2, 3, ... n+1 zu besetzen)
+\Rarr Anzahl der Permutationen von $1, 2... (n+1) = (n+1)!$
+}
+\section{Definition: Binomialkoeffizienten}
+Seinen $k, n \in \N_0$ $\begin{pmatrix}
+n\\k
+\end{pmatrix} := \prod_{j = 1}^{k} \frac{(n - j + 1)}{j}$\\
+sprich "k aus n" oder "n über k"\\
+Folgerungen:
+\begin{enumerate}
+\item $\begin{pmatrix}
+n \\ 0
+\end{pmatrix} = 1$,
+$\begin{pmatrix}
+n\\1
+\end{pmatrix} = n$,
+$\begin{pmatrix}
+n\\n
+\end{pmatrix} = 1$
+\item $\begin{pmatrix}
+n\\k
+\end{pmatrix} = 0$ falls $k > n$\\
+\item $0 \leq k \leq n \Rarr \begin{pmatrix}
+n\\k
+\end{pmatrix} = \frac{n!}{k! \cdot (n - k)!}$
+\end{enumerate}
+\Satz
+$\begin{pmatrix}
+n + 1\\k + 1
+\end{pmatrix} = \begin{pmatrix}
+n\\k
+\end{pmatrix} + \begin{pmatrix}
+n\\k +1
+\end{pmatrix}$ für $0 \leq k \leq n$\\
+Rekursionsformel\\
+Beweis in der Übung.\\
+Veranschaulichung: Das Pascal'sche Dreieck.
+\Satz Anzahl der k-Elementigen Teilmengen einer n-elementigen Menge ist $\begin{pmatrix}
+n\\k
+\end{pmatrix}$.\\
+Folgerung aus 2.9: $\begin{pmatrix}n\\k\end{pmatrix} \in \N_0$ für $1 ≤ k ≤ n$
+\subsection*{Beweis zu 2.9:}
+Ziehe k Kugeln aus einer Urne mit n nummerierten Kugeln, ohne gezogene Kugeln zurückzulegen.\\
+(Zunächst unter Beachtung der Reihenfolge.)
+\enum{
+	\item Zug: n Möglichkeiten
+	\item Zug: n-1 Möglichkeiten\\
+	$\vdots$
+	\item[k] Zug: n-k+1 Möglichkeiten
+}
+Nach Satz 2.6 kommt dabei jede k-elementige Teilmenge in $k!$ verschiedenen Anordnungen vor. (Reihenfolgen der Kugeln)\\
+Anzahl der k-elementigen Teilmengen $\frac{n(n-1) \cdot ... \cdot (n-k+1)}{k!} = \begin{pmatrix}
+n\\k
+\end{pmatrix}$\\
+\subsection*{Wichtige Anwendungen}
+Seien $x, y\in \R, n \in \N_0$.\\
+$(x+y)^n = ?$\\
+$(x+y)^1 = x+y$
+$(x+y)^2 = x^2 + 2xy + y^2$
+$(x+y)^n = x^3 + 3x^2y + 3xy^2 + y^3$
+Vermutung: Die Koeffizienten aus dem pascal'schen Dreieck sind Binominialkoeffizienten.\\

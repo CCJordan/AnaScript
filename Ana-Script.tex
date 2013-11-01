@@ -1,0 +1,160 @@
+\documentclass[a4paper,10pt]{scrreprt}
+\usepackage{amsmath}	% Mathebibliothek 2
+\usepackage{amssymb}	% Mathebibliothek 2
+\usepackage{breqn}
+\usepackage{wasysym}
+\usepackage{fontspec}
+\usepackage{polyglossia}
+\usepackage[math-style=TeX]{unicode-math}	% Unicode Unterstützung
+%\setmainfont{FreeSerif.otf}
+%\setmathfont{Asana-Math.otf}
+%\setmathfont{xits-math.otf}
+\usepackage{calligra}	% Schrift
+\usepackage{cancel}		% Kürzen und Durchstreichen
+\usepackage{soulutf8}	% Für schöne Unterstreichungen
+\usepackage[hyperindex,backref,hidelinks]{hyperref}
+
+% Language
+\setdefaultlanguage{german}
+
+% Definitionen fürs floaten
+\fboxsep .5pt
+\fboxrule .5pt
+
+% set underline
+\setul{.3mm}{.8pt}
+
+% Schusterjungen und Hurenkinder
+\clubpenalty = 10000
+\widowpenalty = 10000
+\displaywidowpenalty = 1000
+
+% Beschreibaren Seitenbereich definieren
+\usepackage[left=2.5cm,right=2.5cm,top=2cm,bottom=2.5cm]{geometry}
+
+% Kopf- und Fußzeile einfügen
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\setlength{\headheight}{25pt}
+
+% Kopfzeile Linie oben
+\renewcommand{\headrulewidth}{0.5pt}
+
+% Fußzeile mittig
+\fancyfoot[C]{\thepage}
+
+% Linie unten
+\renewcommand{\footrulewidth}{0.5pt}
+
+% Kopfzeilen fürs Inhaltsverzeichnis:
+% Kopfzeile links bzw. innen
+\fancyhead[L]{\calligra\Large Inhaltsverzeichnis}
+% Kopfzeile rechts bzw. außen
+\fancyhead[R]{\calligra\Large{}}
+
+% ***********************
+% *** costum commands ***
+% ***********************
+
+% kürzerer command um neue mathemathische commands (ohne parameter) zu erstellen
+\newcommand{\mcmd}[2]{\newcommand{ #1 }{\text{$#2$}}} 
+% kürzerer command um neue temxt commands (ohne parameter) zu erstellen
+\newcommand{\tcmd}[2]{\newcommand{ #1 }{\text{#2}}} 
+% kürzerer command um neue commands (ohne parameter, ohne environment) zu erstellen
+\newcommand{\cmd}{\newcommand}
+
+% Mengen
+\mcmd{\N}{\mathbb{N}}
+\mcmd{\Z}{\mathbb{Z}}
+\mcmd{\Q}{\mathbb{Q}}
+\mcmd{\R}{\mathbb{R}}
+\mcmd{\K}{\mathbb{K}}
+\renewcommand{\C}{\text{$\mathbb{C}$}}
+
+\mcmd{\nN}{n\in\N}
+\mcmd{\eN}{\in\N}
+\mcmd{\eZ}{\in\Z}
+\mcmd{\eQ}{\in\Q}
+\mcmd{\eR}{\in\R}
+\mcmd{\eC}{\in\C}
+
+% griechische Buchstaben
+\mcmd{\z}{\zeta}
+\mcmd{\e}{\epsilon}	
+\mcmd{\de}{\delta}	
+
+% Pfeile
+\mcmd{\equ}{\Leftrightarrow}
+\mcmd{\Rarr}{\Rightarrow}
+\mcmd{\Larr}{\Leftarrow}
+
+% Symbole
+\cmd{\qed}{\hfill\text{\calligra q.e.d.}}
+\mcmd{\bs}{\backslash}
+\mcmd{\ba}{\bs}
+
+% häufige mathemathische Ausdrücke
+\mcmd{\nif}{n→∞}
+\mcmd{\an}{(a_n)}
+\cmd{\til}[1]{\widetilde{#1}}
+
+% Formelkürzel
+\cmd{\bino}[2]{\text{$\ds\binom{#1}{#2} = \frac{#1!}{#2!\cdot(#1-#2)!}$}}
+
+% Überschriften
+\cmd{\sS}[1]{\section{#1}}
+\cmd{\usS}[1]{\section*{#1}}
+\cmd{\Def}{\sS{Definition:}}
+\cmd{\Satz}{\sS{Satz:}}
+\cmd{\uS}[1]{\section*{\ul{#1}}}
+\cmd{\Wdh}[1]{\section*{Wiederholung #1}}
+\cmd{\wdh}{\Wdh{}}
+\cmd{\sss}[1]{\subsection*{\ul{#1}}}
+\cmd{\bsp}{\sss{Beispiel:}}
+\cmd{\Bsp}[1]{\subsection*{\ul{Beispiel:} #1}}
+\cmd{\bem}{\sss{Bemerkung:}}
+\cmd{\Bem}[1]{\subsection*{\ul{Bemerkung} #1:}}
+\cmd{\beh}{\sss{Behauptung:}}
+\cmd{\bew}{\sss{Beweis:}}
+\cmd{\Bew}[1]{\subsection*{\ul{Beweis} #1:}}
+\cmd{\anm}{\sss{Anmerkung:}}
+\cmd{\ssss}[1]{{\bf\ul{#1}}}
+
+% Textkürzel
+\cmd{\ok}{\hfill{\checkmark}}
+
+% Environments
+\cmd{\ds}{\displaystyle}
+\cmd{\Sum}{\ds\sum}
+\cmd{\Lim}{\ds\lim}
+\cmd{\Int}{\ds\int}
+
+\cmd{\desc}[2]{\begin{description}\item[\textrm{#1}]{\hfill\\*#2}\end{description}}
+\cmd{\ind}[2]{\desc{IA:}{$n=0$\\*#1\ok}\desc{IS:}{$n\to n+1$\\*#2\qed}}
+\cmd{\indIV}[3]{\desc{IA:}{$n=0$\\*#1\ok}\desc{IV:}{#2}\desc{IS:}{$n\to n+1$\\*#3\qed}}
+\cmd{\notat}[1]{\begin{description}\item[\textsf{\em Notation:}]{\hfill\\*\textsf{\em #1}}\end{description}}
+\cmd{\ol}[1]{\text{$\overline{#1}$}}
+\cmd{\ary}[1]{\begin{array}{c}#1\end{array}}
+\cmd{\alg}[1]{\begin{align*}#1\end{align*}}
+\cmd{\case}[1]{\begin{cases}#1\end{cases}}
+\cmd{\enum}[1]{\begin{enumerate}#1\end{enumerate}}
+\cmd{\itm}[1]{\begin{itemize}#1\end{itemize}}
+
+% Author, title…
+\title{Script zur Analysis Vorlesung 2013}
+\author{Christopher Jordan}
+\date{\today}
+
+% Less detailed TOC
+\setcounter{tocdepth}{1}
+
+\begin{document}
+\maketitle
+\tableofcontents\newpage
+\input{v01}
+\input{v02}
+\input{v03}
+\input{v04}
+\input{v05}
+\input{v06}
+\end{document}

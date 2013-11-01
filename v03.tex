@@ -1,0 +1,86 @@
+% Kopfzeile beim Kapitelanfang:
+\fancypagestyle{plain}{
+%Kopfzeile links bzw. innen
+\fancyhead[L]{\calligra\Large Vorlesung Nr. 3}
+%Kopfzeile rechts bzw. außen
+\fancyhead[R]{\calligra\Large 21.10.2012}
+}
+%Kopfzeile links bzw. innen
+\fancyhead[L]{\calligra\Large Vorlesung Nr. 3}
+%Kopfzeile rechts bzw. außen
+\fancyhead[R]{\calligra\Large 21.10.2013}
+% **************************************************
+%
+\section{Der Binomische Satz}
+Seien $x, y \in \R, n \in \N_0$\\
+$$(x+y)^n = \sum_{k=0}^{n} \begin{pmatrix}n\\k\end{pmatrix} x^k y ^{n-k}$$\\
+\subsection*{Beweis}
+Mit Induktion nach $n$:\\
+\enum{
+	\item[I] Induktionsanfang $n=0$:\\
+	$(x + y)^0 = 1 = \begin{pmatrix}0\\0\end{pmatrix} x^0y^0$
+	\item[II] Induktionsschritt $n\to n + 1$:\\
+	$(x+y)^{n+1} = (x+y)^1 + (x+y)^n \underset{I.V.}{=} (x+y)^1 \cdot \left( \sum_{k=0}^{n} \begin{pmatrix}n\\k\end{pmatrix} x^k y ^{n-k} \right)$\\
+	$\Rarr x\cdot (x) + y \cdot (x)$\\
+	$\Rarr \sum_{k=0}^{n} \begin{pmatrix}n\\k\end{pmatrix} x^{(k + 1)} y ^{n-k} + \sum_{k=0}^{n} \begin{pmatrix}n\\k\end{pmatrix} x^k y ^{n-k + 1}$
+	$\underset{Indexverschiebung}{\Rarr}\sum_{k=1}^{n+1} \begin{pmatrix}n\\k\end{pmatrix} x^k y ^{n-(k-1)}$
+	$\Rarr (x+y)^{n+1} = y^{n+1} + x^{n+1} + \sum_{k=1}^{n} \left[\begin{pmatrix}n\\k\end{pmatrix} + \begin{pmatrix}n\\k-1\end{pmatrix}\right] x^k y ^{n+1-k}$\\
+	$\Rarr \sum_{k=0}^{n+1} \begin{pmatrix}n+1\\k\end{pmatrix} x^k y ^{n-(k-1)}$ \qed
+}
+\chapter{Die Reellen Zahlen}
+Ein Ziel bei der Erweiterung von Zahlenbereichen ist die Lösbarkeit von Gleichungen.\\
+$\N \to \Z: x + n = m \qquad (n,m \in \N_0)$\\
+$\Z \to \Q: x \cdot n = m \qquad (n,m \in \Z, n \neq 0)$\\
+Aber $x^n = m (n,m \in \N)$ hat im Allgemeinen keine Lösungen im $\Q$\\
+\section*{Axiomatische Einführung von $\R$}
+Wir geben eine Reihe von Grundlegenden Eigenschaften von $\R$ an.
+\enum{
+	\item Körperaxiome
+	\item Anordnungsaxiome
+	\item Vollständigkeitsaxiom
+}
+Man kann zeigen (wichtiger Satz): Es gibt genau 1 Menge $\R$ mit diesen Eigenschaften.\\
+Es gibt präzise Konstruktionen\\
+$\N \to \Z \to \Q \underset{Vervollst{\"a}ndigung}{\to} \R$ so dass $\N \subseteq \Z \subseteq \Q \subseteq \R$
+\section{Vorbemerkung: Quantoren}
+Gegeben: Aussagen $P(x), x\in X (X \text{ sei Menge})$\\
+\begin{tabular}{l|l}
+Aussage & Schreibweise\\\hline
+Für alle $x\in X$ gilt $P(X)$ & $\forall x\in X: P(x)$\\
+Es gibt (mindestens) ein x mit $P(x)$ & $\exists x \in X: P(x)$\\
+Es gibt genau ein $x \in X$ mit $P(x)$ & $\exists! x \in X: P(x)$\\
+Es gibt kein $x \in X$ mit $P(x)$ & $\not\exists x\in X: P(x)$
+\end{tabular}\\
+$\forall: Allquantor, \exists: Existenzquantor$
+\section*{I. Körperaxiome}
+Auf der Menge $\R$ sind zwei Rechenoperationen + (Addition) und $\cdot$ (Multiplikation) erklärt, sodass $(\R, +, \cdot)$ ein Körper ist.\\
+\section{Definition: Körper}
+Ein Körper ist eine Menge $\mathbb{K}$ mit zwei Operationen + (Addition) und $\cdot$ Multiplikation, sodass gilt:
+\enum{
+	\item $\forall x, y \in \mathbb{K}$:\\
+	$(x+y) + z = x +(y+z)$ (Assoziativität für +)\\
+	$(x\cdot y) \cdot z = x \cdot (y \cdot z)$ (Assoziativität für $\cdot$)
+	\item $\forall x,y \in \mathbb{K}:$\\
+	$x+y = y + x$ (Kommutativität für +)\\
+	$x \cdot y = y \cdot x$ (Kommutativität für $\cdot$)\\
+	\item Existenz neutraler Elemente:\\
+	$\exists 0 \in \mathbb{K}$ (Null) mit: $x + 0 = x$\\
+	$\exists 1 \in \mathbb{K}$ (Eins) mit: $x \cdot 1 = x$
+	\item Existenz von Inversen:\\
+	$\forall x \in \mathbb{K} \exists y \in \mathbb{K} x + y = 0$ (additives Inverses von x)
+	$\forall x \in \mathbb{K}\setminus \{0\} \exists z \in \mathbb{K} x + z = 1$ (multiplikatives Inverses von x)
+	\item Distributivgesetz\\
+	$\forall x,y,z \in \mathbb{K}: x \cdot (y + z) = x y + x z$
+}
+\section{Folgerungen}
+Sei $K$ ein Körper.
+\enum{
+\item 0 und 1 sind eindeutig bestimmt.\\
+Beweis für 0 (für 1 analog):\\
+Sei 0' neutral bezüglich +, sodass $0 = 0 + 0' = 0' + 0 = 0'$
+\item $y, z$ in (4) sind (bei festem x) eindeutig bestimmt:\\
+Beweis für y: Sei $x + y = 0 = x + y \Rarr y = y + 0 = y + (x + y') = (y + x) + y' = (x + y) + y' = y'$\\
+Bez. $-x$: additives Inverses\\
+$x^{-1} = \frac{1}{x}$
+\item $a, b\in \mathbb{K} \Rarr$ die Gleichung $a + x = b$ hat eine ein eindeutige Lösung, nämlich x = b+ (-a)
+}

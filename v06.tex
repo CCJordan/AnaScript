@@ -1,0 +1,108 @@
+% Kopfzeile beim Kapitelanfang:
+\fancypagestyle{plain}{
+%Kopfzeile links bzw. innen
+\fancyhead[L]{\calligra\Large Vorlesung Nr. 6}
+%Kopfzeile rechts bzw. außen
+\fancyhead[R]{\calligra\Large 31.10.2013}
+}
+%Kopfzeile links bzw. innen
+\fancyhead[L]{\calligra\Large Vorlesung Nr. 6}
+%Kopfzeile rechts bzw. außen
+\fancyhead[R]{\calligra\Large 31.10.2013}
+% **************************************************
+%
+Abb. (Funktion) $f$ von $X$ nach $Y$ ($X, Y$ Mengen)\\
+$f:X\to Y, x\mapsto f(x)$\\
+\subsubsection*{Beispiel}
+\enum{
+\item $X = \{\text{Studenten an der UPB}\}, f:X\to \N, x\mapsto \text{Alle von }x$
+\item $f:\R \to \R, x\to x^2$\\
+$\Gamma_f:$ Normalparabel\\
+$f(\R) = \{x\in \R: x≥0 \}$
+%TODO Graph Normalparabel f(x) = x^2
+\item Lineare Funktionen\\
+$f: \R \to \R, x \to a \cdot x + b$\\
+$\Gamma_f:$ Gerade\\
+$a:$ Steigung\\
+$b$: Achsenabschnitt
+%TODO Lineare Funktion zeichnen f(x) = 0,7x + b a und b im Steigungsdreieck anzeichnen.
+\item Polynomfunktionen
+$p: \R \to \R, p(x) = a_nx^n + \cdots + a_1x + a_0$ mit $n\nN_0, a_0 ... a_n Koeffizienten$
+\item Floor-Funktion (Gauß-Klammer)
+$\lfloor . \rfloor: \R \to \R$\\
+$\lfloor x \rfloor := größtes k\in \Z mit k ≤ x$
+%TODO Graph f(x) = floor(x)
+\item Identische Abbildung auf einer Menge $X$\\
+$id_x: X\to X, x\to x$
+\item $P:=$ Menge aller Sortierprogramme für endliche Listen\\
+$L:= P\times \N \to \R$\\
+$L(p, n) :=$ max. Laufzeit, die ein Programm $p$ zum sortieren einer Liste der Länge $n$ braucht.\\
+}
+Für die Charakterisierung einer Abbildung ist neben der Abbildungsvorschrift $f$ auch der Definitionsbereich $X$ wichtig.\\
+\subsubsection*{Beispiel}
+$f:\R \to \R, f(x) = |x|$
+und $g:[-1, 1] \to \R, g(x) = |x|$ sind verschiedene Abbildungen. $g$ ist eine Restriktion von $f$.
+\section{Definition}
+Sei $f: X\to Y$ Abbildung\\
+\enum {
+\item Sei $A\subseteq X, f(A):= \{f(x) : x \in A\}$\\
+$f(x) \subseteq Y:$ Wertebereich von $f$\\
+\item Sei $B\subseteq Y: f^{-1}(B):=\{x\in X: f(x) \in B\}$\\
+Urbild von $B$ unter $f$.\\
+Besagt nicht, dass $f^{-1}$ Abbildung!\\
+}
+\subsubsection*{Beispiel}
+$f:\Z \to \Z, x \mapsto x^2$\\
+$f(\{-2, 5\}) = \{4, 25\}$\\
+$f^{-1}(\{4, 25\}) = \{± 2, ±5\}$\\
+$f^{-1}(\{3\}) = \emptyset$
+\section*{Komposition von Abbildungen}
+\section{Definition}
+Seien $f:X\to Y$ und $g: Y\to Z$ Abbildungen\\
+Die Komposition (Verknüpfung, Verkettung) von $f$ und $g$ ist die Abbildung\\
+$g\circ f: X\to Z, x \to g(f(x))$\\
+%TODO Schaubild Transitive Verkettung
+($g$ nach $f$)\\
+\subsubsection*{Beispiel}
+$f, g: \R \to \R, f(x) = 2x+1 , g(x) = x^2$\\
+$(g \circ f)(x) = (2x+1)^2 = 4x^2 + 4x + 1$\\
+$(f \circ g)(x) = 2x^2 + 1$\\
+$\Rarr (g \circ f) \neq (f \circ g)$\\
+Aber Komposition ist Assoziativ
+\section{Satz}
+Seien $f:X\to Y, g:Y\to Z, h:Z\to W$ Abbildungen $\Rarr$ $h \circ (g \circ f) = (h \circ g) \circ f$\\
+Beweis: $(h\circ (g\circ f))(x) = h((g\circ f)(x) = h((g(f(x)))) = (h \circ g)(f(x)) = ((h \circ g) \circ f)(x) \qed$
+\section{Eigenschaften von Abbildungen}
+\begin{description}
+\item[injektiv] falls es zu jedem $y \in Y$ höchstens ein $x \in X$ gibt mit $f(x) = y$
+\item[surjektiv] falls es zu jedem $y \in Y$ mindestens ein $x \in X$ gibt mit $f(x) = y$
+\item[bijektiv] falls es zu jedem $y \in Y$ genau ein $x \in X$ gibt mit $f(x) = y$\\
+$f(x)$ ist surjektiv und bijektiv
+\end{description}
+Sei $f:X\to Y$ bijektivm $\forall y\in Y \exists! x\in X: f(x) = y$\\
+Wir können dann $g: Y\to X$ definieren durch $g(y) := x$ falls $y = f(x)$\\
+damit $g(f(x)) = x\ \forall x\in X, f(g(y)) = y \forall y\in Y$\\
+Das heißt: $g\circ f = id_x$, $f \circ g = id_y$
+\section{Definition: Umkehrabbildung}
+$g$ heißt die Umkehrabbildung (Umkehrfunktion) von $f$. \desc{Bezeichnung:}{$g= f^{-1}$}
+Damit falls $f$ bijektiv: $y = f(x) \Leftrightarrow x = f^{-1}(y)$
+\section{Satz}
+Für $f: X\to Y$ sind äquivalent:
+\enum {
+\item $f$ ist bijektiv
+\item $\exists g: Y\to X: g\circ f = id_x, f \circ g = id_y$
+ in diesem Fall ist $g = f^{-1}$
+}
+\subsubsection*{Beweis}
+\begin{description}
+\item[1 $\Rarr$ 2] siehe oben
+\item[2 $\Rarr$ 1] $f$ injektiv, denn: sei $f(x_1) = f(x_2) \Rarr x_1 = g(f(x_1)) = g(f(x_2)) = x_2$\\
+$f$ surjektiv, denn: Sei $y \in Y \Rarr y = f(g(y))$\\
+$g$ in (2) ist eindeutig, da $g(f(x)) = x$ und $f$ surjektiv$\qed$
+\end{description}
+Sei $f:X\to Y$ bijektiv\\
+$X, Y \subseteq \R$, Graph von $f^{-1}$?
+$\Gamma_f = \{(x, f(x)): x \in X\}$\\
+$\Gamma_{f^{-1}} = \{(f(x), x)\}$\\
+entsteht aus $\Gamma_f$ durch Spiegelung an der Hauptdiagonalen $x = y$
+%TODO Graph f(x) = log(x) und f^{-1}(x)
