@@ -18,27 +18,43 @@ $f:X\to Y, x\mapsto f(x)$\\
 \item $X = \{\text{Studenten an der UPB}\}, f:X\to \N, x\mapsto \text{Alle von }x$
 \item $f:\R \to \R, x\to x^2$\\
 $\Gamma_f:$ Normalparabel\\
-$f(\R) = \{x\in \R: x≥0 \}$
-%TODO Graph Normalparabel f(x) = x^2
+$f(\R) = \{x\in \R: x≥0 \}$\\
+\begin{tikzpicture}[domain=0:2, scale=0.5, prefix="plots/", smooth]
+    \draw[very thin,color=gray] (-0.1,-0.1) grid (4.1,4.1);
+    \draw[->] (-0.2,0) -- (4.2,0) node[right] {$x$};
+    \draw[->] (0,-0.1) -- (0,4.2) node[right] {$y$};
+    \draw[color=red] plot[id=v06g1] function{x*x} node[right] {};
+\end{tikzpicture}
 \item Lineare Funktionen\\
 $f: \R \to \R, x \to a \cdot x + b$\\
 $\Gamma_f:$ Gerade\\
 $a:$ Steigung\\
-$b$: Achsenabschnitt
-%TODO Lineare Funktion zeichnen f(x) = 0,7x + b a und b im Steigungsdreieck anzeichnen.
+$b$: Achsenabschnitt\\
+%TODO Steigungsdreieck einzeichnen.
+\begin{tikzpicture}[domain=0:4, scale=0.5, prefix="plots/", smooth]
+    \draw[very thin,color=gray] (-0.1,-0.1) grid (4.1,4.1);
+    \draw[->] (-0.2,0) -- (4.2,0) node[right] {$x$};
+    \draw[->] (0,-0.1) -- (0,4.2) node[right] {$y$};
+    \draw[color=red] plot[id=v06g2] function{ 0.7*x + 1} node[right] {};
+\end{tikzpicture}
 \item Polynomfunktionen
 $p: \R \to \R, p(x) = a_nx^n + \cdots + a_1x + a_0$ mit $n\nN_0, a_0 ... a_n Koeffizienten$
 \item Floor-Funktion (Gauß-Klammer)
 $\lfloor . \rfloor: \R \to \R$\\
-$\lfloor x \rfloor := größtes k\in \Z mit k ≤ x$
-%TODO Graph f(x) = floor(x)
+$\lfloor x \rfloor := größtes k\in \Z mit k ≤ x$\\
+\begin{tikzpicture}[domain=0:4, scale=0.5, prefix="plots/", samples=250]
+    \draw[very thin,color=gray] (-0.1,-0.1) grid (4.1,4.1);
+    \draw[->] (-0.2,0) -- (4.2,0) node[right] {$x$};
+    \draw[->] (0,-0.1) -- (0,4.2) node[right] {$y$};
+    \draw[color=red] plot[id=v06g3] function{floor(x)} node[right] {};
+\end{tikzpicture}
 \item Identische Abbildung auf einer Menge $X$\\
 $id_x: X\to X, x\to x$
 \item $P:=$ Menge aller Sortierprogramme für endliche Listen\\
 $L:= P\times \N \to \R$\\
-$L(p, n) :=$ max. Laufzeit, die ein Programm $p$ zum sortieren einer Liste der Länge $n$ braucht.\\
+$L(p, n) :=$ max. Laufzeit, die ein Programm $p$ zum sortieren einer Liste der Länge $n$ braucht.
 }
-Für die Charakterisierung einer Abbildung ist neben der Abbildungsvorschrift $f$ auch der Definitionsbereich $X$ wichtig.\\
+Für die Charakterisierung einer Abbildung ist neben der Abbildungsvorschrift $f$ auch der Definitionsbereich $X$ wichtig.
 \subsubsection*{Beispiel}
 $f:\R \to \R, f(x) = |x|$
 und $g:[-1, 1] \to \R, g(x) = |x|$ sind verschiedene Abbildungen. $g$ ist eine Restriktion von $f$.
@@ -104,5 +120,13 @@ Sei $f:X\to Y$ bijektiv\\
 $X, Y \subseteq \R$, Graph von $f^{-1}$?
 $\Gamma_f = \{(x, f(x)): x \in X\}$\\
 $\Gamma_{f^{-1}} = \{(f(x), x)\}$\\
-entsteht aus $\Gamma_f$ durch Spiegelung an der Hauptdiagonalen $x = y$
+entsteht aus $\Gamma_f$ durch Spiegelung an der Hauptdiagonalen $x = y$\\
+
 %TODO Graph f(x) = log(x) und f^{-1}(x)
+\begin{tikzpicture}[domain=-2:2, scale=0.5, prefix="plots/", smooth]
+    \draw[very thin,color=gray] (-2.1,-2.1) grid (3.1,3.1);
+    \draw[->] (-2,0) -- (3.2,0) node[right] {$x$};
+    \draw[->] (0,-2.1) -- (0,3.2) node[right] {$y$};
+    \draw[color=red, domain=-2:3] plot[id=v06g4] function{log(x)} node[right] {$log(x)$};
+    \draw[color=green, domain=-2:1.35] plot[id=v06g5] function{exp(x)} node[right] {$exp(x)$};
+\end{tikzpicture}
