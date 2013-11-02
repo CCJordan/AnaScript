@@ -45,9 +45,9 @@ $\sum_{k=m}^{n} a_k = 0$
 und
 $\prod_{k=m}^{n} a_k = 1$
 \subsubsection*{Beispiel: Die Arithmetische Reihe}
-$\sum_{k = 1}^{n} = 1 + 2 + ... n = ?$\\
+$\sum_{k = 1}^{n} = 1 + 2 + ... + n = ?$\\
 Die Idee von Gauß für n = 100\\
-$1 + ... 100 = (1 + 100) + (2 + 99) + ... (50 + 51) = 101 \cdot 50 = 5050$\\
+$1 + ... 100 = (1 + 100) + (2 + 99) + ... + (50 + 51) = 101 \cdot 50 = 5050$\\
 \section{Satz}
 $\sum_{k=1}^{n} k = \frac{1}{2} \cdot n \cdot (n+1)$ für alle $n \in \N$\\
 Beweis mit vollständiger Induktion:\\
@@ -74,10 +74,10 @@ $$\sum_{k = 0}^{n} x^k = \frac{1 - x^{n+1}}{1 - x}$$
 \subsubsection*{Beweis mit vollständiger Induktion}
 % Römische Zahlen
 \begin{enumerate}
-\item Ind. Anfang $n = 0$: $x^0 = \frac{1 - x}{1 - x} = 1$
-\item Ind. Schluss $n \to n + 1$\\
-I.V.: $\sum_{k = 0}^{n} x^k = \frac{1 - x^{n+1}}{1 - x}$\\
-\Rarr $\sum_{k = 0}^{n + 1} x^k = \sum_{k = 0}^{n} x^k + x^{n+1} = \frac{1 - x^{n+1}}{1 - x} + x^{n+1} 
+\item Induktionsanfang $n = 0$: $x^0 = \frac{1 - x}{1 - x} = 1$
+\item Induktionsschritt $n \to n + 1$:\\
+I.V.: $\ds\sum_{k = 0}^{n} x^k = \frac{1 - x^{n+1}}{1 - x}$\\
+$\ds\Rarr \sum_{k = 0}^{n + 1} x^k = \sum_{k = 0}^{n} x^k + x^{n+1} = \frac{1 - x^{n+1}}{1 - x} + x^{n+1} 
 = \frac{1 - x^{n+1} + (1-x)\cdot x^{n+1}}{1 - x} = \frac{1 - x^{n+2}}{1 - x}$
 \end{enumerate}
 \qed\\
@@ -158,4 +158,4 @@ $(x+y)^n = ?$\\
 $(x+y)^1 = x+y$
 $(x+y)^2 = x^2 + 2xy + y^2$
 $(x+y)^n = x^3 + 3x^2y + 3xy^2 + y^3$
-Vermutung: Die Koeffizienten aus dem pascal'schen Dreieck sind Binominialkoeffizienten.\\
+Vermutung: Die Koeffizienten aus dem pascal'schen Dreieck sind Binominialkoeffizienten.
