@@ -12,7 +12,7 @@
 % **************************************************
 %
 Abb. (Funktion) $f$ von $X$ nach $Y$ ($X, Y$ Mengen)\\
-$f:X\to Y, x\mapsto f(x)$\\
+$f:X\to Y, x\mapsto f(x)$
 \subsubsection*{Beispiel}
 \enum{
 \item $X = \{\text{Studenten an der UPB}\}, f:X\to \N, x\mapsto \text{Alle von }x$
@@ -41,7 +41,7 @@ $b$: Achsenabschnitt\\
 $p: \R \to \R, p(x) = a_nx^n + \cdots + a_1x + a_0$ mit $n\nN_0, a_0 ... a_n Koeffizienten$
 \item Floor-Funktion (Gauß-Klammer)
 $\lfloor . \rfloor: \R \to \R$\\
-$\lfloor x \rfloor := größtes k\in \Z mit k ≤ x$\\
+$\lfloor x \rfloor := \text{größtes }k\in \Z \text{mit }k ≤ x$\\
 \begin{tikzpicture}[domain=0:4, scale=0.5, prefix="plots/", samples=250]
     \draw[very thin,color=gray] (-0.1,-0.1) grid (4.1,4.1);
     \draw[->] (-0.2,0) -- (4.2,0) node[right] {$x$};
@@ -54,31 +54,30 @@ $id_x: X\to X, x\to x$
 $L:= P\times \N \to \R$\\
 $L(p, n) :=$ max. Laufzeit, die ein Programm $p$ zum sortieren einer Liste der Länge $n$ braucht.
 }
-Für die Charakterisierung einer Abbildung ist neben der Abbildungsvorschrift $f$ auch der Definitionsbereich $X$ wichtig.
+Für die Charakterisierung einer Abbildung ist neben der Abbildungsvorschrift $f$, auch der Definitionsbereich $X$ wichtig.
 \subsubsection*{Beispiel}
 $f:\R \to \R, f(x) = |x|$
 und $g:[-1, 1] \to \R, g(x) = |x|$ sind verschiedene Abbildungen. $g$ ist eine Restriktion von $f$.
 \section{Definition}
-Sei $f: X\to Y$ Abbildung\\
+Sei $f: X\to Y$ Abbildung
 \enum {
 \item Sei $A\subseteq X, f(A):= \{f(x) : x \in A\}$\\
 $f(x) \subseteq Y:$ Wertebereich von $f$\\
 \item Sei $B\subseteq Y: f^{-1}(B):=\{x\in X: f(x) \in B\}$\\
 Urbild von $B$ unter $f$.\\
-Besagt nicht, dass $f^{-1}$ Abbildung!\\
+Besagt nicht, dass $f^{-1}$ Abbildung!
 }
 \subsubsection*{Beispiel}
 $f:\Z \to \Z, x \mapsto x^2$\\
 $f(\{-2, 5\}) = \{4, 25\}$\\
 $f^{-1}(\{4, 25\}) = \{± 2, ±5\}$\\
 $f^{-1}(\{3\}) = \emptyset$
-\section*{Komposition von Abbildungen}
-\section{Definition}
+\section{Definition: Komposition von Abbildungen}
 Seien $f:X\to Y$ und $g: Y\to Z$ Abbildungen\\
 Die Komposition (Verknüpfung, Verkettung) von $f$ und $g$ ist die Abbildung\\
 $g\circ f: X\to Z, x \to g(f(x))$\\
 %TODO Schaubild Transitive Verkettung
-($g$ nach $f$)\\
+($g$ nach $f$)
 \subsubsection*{Beispiel}
 $f, g: \R \to \R, f(x) = 2x+1 , g(x) = x^2$\\
 $(g \circ f)(x) = (2x+1)^2 = 4x^2 + 4x + 1$\\
@@ -95,7 +94,7 @@ Beweis: $(h\circ (g\circ f))(x) = h((g\circ f)(x) = h((g(f(x)))) = (h \circ g)(f
 \item[bijektiv] falls es zu jedem $y \in Y$ genau ein $x \in X$ gibt mit $f(x) = y$\\
 $f(x)$ ist surjektiv und bijektiv
 \end{description}
-Sei $f:X\to Y$ bijektivm $\forall y\in Y \exists! x\in X: f(x) = y$\\
+Sei $f:X\to Y$ bijektiv $\forall y\in Y \exists! x\in X: f(x) = y$\\
 Wir können dann $g: Y\to X$ definieren durch $g(y) := x$ falls $y = f(x)$\\
 damit $g(f(x)) = x\ \forall x\in X, f(g(y)) = y \forall y\in Y$\\
 Das heißt: $g\circ f = id_x$, $f \circ g = id_y$

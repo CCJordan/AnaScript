@@ -1,0 +1,105 @@
+\chapter{Folgen}
+\section{Definition}
+Sei $X$ eine Menge, eine Folge $X$ ist eine Abbildung $f: \N \to X, n \mapsto f(n) =: a_n\in X$\\
+Schreibe $(a_n)_{\nN}\subseteq X$\\
+Varianten: Folgen $(a_n)_{\nN}, (a_n)_{n≥k} = (a_k, a_{k+1}, a_{k+2}, ...)$ mit beliebigem aber festem $k \in \Z$.\\
+Folgen im $\R$: Reelle Folgen.\\
+\bsp
+\enum{
+	\item $a_n = n^2$\\
+	$(a_n)_{\nN} = (1, 4, 9)$
+	\item $a_n = (-1)^n$\\
+	$(a_n)_{n≥0} = (1, -1, 1, -1, ...)$
+	\item Konstante Folgen: $a_n = a \forall\nN$\\
+	$(a_n) = (a, a, a,...)$
+}
+\section*{Rekursiv definierte Folgen}
+\enum{
+	\item Angabe von $a_1, ... , a_k$
+	\item Angabe einer Vorschrift mit der $a_{n+1}$ aus $a_n$ berechnet wird.\\
+	$a_{n+1} = F(\underbrace{a_{n-k+1}, a_{n}}_\text{k Argumente})$ mit einer Funktion $F: X^k \to X$
+}
+\section*{Die Fibunacci Zahlen}
+$a_0 = 1, a_1 = 1$\\
+$a_{n+1} = a_n + a_{n-1}$ mit $n≥1$\\
+$(a_n) = (1, 1, 2, 3, 5, 8, 13, 21, 34,...)$
+\section{Definition Konvergenz}
+Eine Folge $(a_n)_{\nN} \subseteq \R$ heißt \ul{konvergent}, falls ein $a\in \R$ existiert, sodass gilt:\\
+$\forall \e > 0 \exists n_0 \in \N$: $\vert a_n-a\vert < \e\forall n ≥ n_0$\\
+Das heißt:\\
+Für jedes $\e>0$ liegen alle bis auf endlich viele Folgenglieder im Intervall $(a-\e, a+\e)$\\
+$a$: Grenzwert der Folge $(a_n)$
+Schreibweise: $$\lim\limits_{n\to\infty}a_n = a$$
+\section*{Beispiel}
+Konstante Folge $a_n = a$ konvergiert, da $\lim\limits_{n\to\infty}a_n = a$
+\section{Lemma}
+Jede Folge $(a_n)\subseteq\R$ hat höchstens einen Grenzwert.\\
+\subsubsection*{Beweis}
+Sei $a_n\to a$, $a_n\to a'$, $a \neq a'$\\
+wähle $\e:= \frac{1}{2}\vert a - a' \vert > 0 \Rarr \exists n_1, n_2 \in \N$\\
+$\vert a_n - a \vert < \e \forall n ≥ n_1$, $\vert a_n - a' \vert < \e \forall n ≥ n_2$\\
+Für $n ≥ n_0:=max(n_1, n_2)$ folgt: $\vert a-a'\vert ≤ \vert a - a_n\vert + \vert a_n - a' \vert<2\e = \vert a-a' \vert \lightning$
+\subsubsection*{Bezeichnung}
+\enum{
+	\item Eine Folge $(a_n)$ mit $a_n \to 0$ heißt \ul{Nullfolge}.
+	\item Eine Folge, die nicht konvergiert, heißt \ul{divergent}.
+}
+\section{Beispiele}
+\enum{
+	\item $\lim\limits_{n\to\infty} \frac{1}{n} = 0$\\
+	Beweis:\\
+	Sei $\e > 0$. Wir wollen $\left\vert\frac{1}{n} -0\right\vert < \e \forall \nN$\\
+	Wähle $n_0 \in \N$ sodass $n_0>\frac{1}{\e}$ (Archimedische Eigenschaft von $\R)$\\
+	$n≥n_0 \Rarr \left\vert \frac{1}{n} \right\vert ≤ \frac{1}{n_0} < \e \qed$
+	\item $a_n = (-1)^n = \begin{cases} %{l\qquad l}
+	1 & \text{falls n gerade}\\
+	-1 & \text{falls n ungerade}\end{cases}$\\
+	$(a_n)$ divergent, denn $\vert a_{n+1} -a\vert = 2$ Angenommen $a_n \to a \Rarr \exists n_0 \in \N: \vert a_n - a \vert < 1 \forall n≥n_0$\\
+	Also $n ≥ n_0 \Rarr |a_{n+1} -a_n| = |a_{n+1} - a + a + a_n| ≤ |a_{n+1}-a| + |a-a_n| < 1 + 1 = 2 \lightning$
+	\item Sei $x\in \R$ mit $x< 1 \Rarr \lim\limits_{n\to \infty}x^n = 0\qquad (x^n)_{n≥0}$\\
+	Sei $\e > 0 \underset{3.15}{\Rarr}\exists n_0 = n_0(\e) \in \N: |x^{n_0}| = |x|^{n_0} < \e$\\
+	$n≥n_0\Rarr |x^n|≤|x|^{n_0} < \e \qed$
+	\item $x\in\R$ mit $|x|>1 \Rarr \lim\limits_{n\to\infty}\left( \frac{1}{x^n} \right) = 0$\\
+	Folgt aus 3, da $\frac{1}{x^n} = \left(\frac{1}{x}\right)^n$ und $\left\vert \frac{1}{x} \right\vert < 1$
+	\item $|x|>1 \to \lim\limits_{n\to\infty}\dfrac{n}{x^n} = 0$\\
+	\ul{Beweis:}\\
+	$y:= |x|-1 > 0 \Rarr |x^n| = |x|^n = (1 + y)^n = \sum_{k=0}^{n}\binom{n}{k} y^k$ \\
+	$= 1 + n + \binom{n}{2}y^2 + \cdots ≥ \binom{n}{2}y^2 = \frac{n(n-1)}{2} y^2$ für $n>1$\\
+	$\Rarr \left\vert \frac{n}{x^n} \right\vert < \frac{2}{n-1}y^2$\\
+	Bedingung: $\frac{2y^2}{n-1}<\e \Leftrightarrow n>1 + \frac{2}{\e y^n}$\\
+	Wähle $n_0\in \N$ mit $n_0 > 1 + \frac{2}{\e y^2} \Rarr \forall n≥n_0 \Rarr \frac{n}{x^2} < \e \Rarr$ Behauptung
+	\item $\lim\limits_{n \to \infty} \sqrt[n]{n} = 1$\\
+	\ul{Beweis:}\\ %TODO Brüche unter die Wurzel 
+	$n>1 \Rarr \sqrt[n]{n} > \sqrt[n]{1} = 1 \Rarr$\\
+	$x_n:= \sqrt[n]{n}-1 > 0$\\
+	$\Rarr n= (1+x_n)^n = \sum_{k=0}^{n}\binom{n}{k}x_n^k ≥ 1 + \binom{n}{2}x_n^2$\\
+	$\Rarr n - 1 ≥ \frac{n(n-1)}{2}x_n^2$\\
+	$n>1 \Rarr 1 > \frac{n}{2} x_n^2 \Rarr 0< x^n \frac{\sqrt{2}}{n}$\\
+	$n≥n_0 \Rarr \frac{\sqrt{2}}{n} ≤ \frac{\sqrt{2}}{n_0}<\e$, sofern $n_0>\frac{2}{\e^2}$\\
+	$\Rarr 0 < x_n < \e$ für $n ≥ n_0 \Rarr x_n \to 0 \qed$
+}
+\section{Definition: Beschränktheit}
+Eine Folge $(a_n)\subseteq \R$ heißt \ul{beschränkt}, falls $\exists M > 0: |a_n|≤ M \forall n \in \N$
+\section{Lemma}
+Jede konvergente Folge ist beschränkt.
+\subsubsection*{Beweis}
+Sei $a_n \to a \Rarr \exists n_0\in \N$\\
+$|a_n - a|<1 \forall n ≥ n_0$\\
+$\Rarr |a_n| = |a_n - a + a| ≤ |a_n - a| + |a| ≤ 1 + |a| \forall n≥n_0$\\
+$\forall n\in\N$ folgt: $|a_n| ≤ max(|a_1|,..., |a_{n_0}|, ... , 1+|a|) =: M\qed$
+\section{Rechenregeln}
+Seien $(a_n), (b_n)$ Folgen mit $a_n \to a$ und $b_n \to n$. Dann 
+\enum{
+	\item $a_n + b_n \to a + b$
+	\item $a_n \cdot b_n \to a\cdot b$
+	\item ist $b\neq 0 \Rarr \exists N\in \N: b_n \neq 0 \forall n ≥ N$ und $\left(\frac{a_n}{b_n}\right)_{n≥N} \frac{a}{b}$
+	\item $|a_n| \to |a|$
+}
+Aus 1 und 2 folgen: $b \in \R \Rarr a_n + b \to a + b$ und  $a_n \cdot b \to a\cdot b$\\
+\subsection*{Beispiele}
+\enum{
+	\item $k\in \N \Rarr \lim\limits_{n\to \infty}\frac{1}{n^k} = 0$ Also $\frac{1}{n^2} \to 0, \frac{1}{n^3} \to 0$\\
+	Folgt aus 2, denn $\frac{1}{n^k} = \left(\frac{1}{n}\right)^k \to 0^k = 0$ (da $\frac{1}{n}\to 0$)
+	\item $a_n = \frac{n+1}{n}$\\
+	$a_n = 1 + \frac{1}{n} \Rarr a_n \to 1 + 0 = 1$
+}
