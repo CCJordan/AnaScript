@@ -1,3 +1,16 @@
+% Kopfzeile beim Kapitelanfang:
+\fancypagestyle{plain}{
+%Kopfzeile links bzw. innen
+\fancyhead[L]{\calligra\Large Vorlesung Nr. 7}
+%Kopfzeile rechts bzw. außen
+\fancyhead[R]{\calligra\Large 04.11.2013}
+}
+%Kopfzeile links bzw. innen
+\fancyhead[L]{\calligra\Large Vorlesung Nr. 7}
+%Kopfzeile rechts bzw. außen
+\fancyhead[R]{\calligra\Large 04.11.2013}
+% **************************************************
+%
 \chapter{Folgen}
 \section{Definition}
 Sei $X$ eine Menge, eine Folge $X$ ist eine Abbildung $f: \N \to X, n \mapsto f(n) =: a_n\in X$\\
@@ -33,7 +46,7 @@ Schreibweise: $$\lim\limits_{n\to\infty}a_n = a$$
 \section*{Beispiel}
 Konstante Folge $a_n = a$ konvergiert, da $\lim\limits_{n\to\infty}a_n = a$
 \section{Lemma}
-Jede Folge $(a_n)\subseteq\R$ hat höchstens einen Grenzwert.\\
+Jede Folge $(a_n)\subseteq\R$ hat höchstens einen Grenzwert.
 \subsubsection*{Beweis}
 Sei $a_n\to a$, $a_n\to a'$, $a \neq a'$\\
 wähle $\e:= \frac{1}{2}\vert a - a' \vert > 0 \Rarr \exists n_1, n_2 \in \N$\\
@@ -96,6 +109,21 @@ Seien $(a_n), (b_n)$ Folgen mit $a_n \to a$ und $b_n \to n$. Dann
 	\item $|a_n| \to |a|$
 }
 Aus 1 und 2 folgen: $b \in \R \Rarr a_n + b \to a + b$ und  $a_n \cdot b \to a\cdot b$\\
+\subsection*{Beweise}
+\enum{
+	\item $|a_n + b_n - (a + b)| ≤ |a_n - a| + |b_n - b| =: S_n$\\
+	Zu $\e > 0$ wähle $n_0\in \N$ so groß, dass $|a_n - a|<\frac{\e}{2}$, $|b_n - b|< \frac{\e}{2} \forall n ≥ n_0$
+	\item Übung
+	\item Wegen (2) ohne Einschränkung $a_n = a = 1$\\
+	$|b_n|>0$ und $b_n \to b \Rarr \exists N \in \N: |b_n - b|<\frac{|b|}{2} \forall n ≥ N$\\
+	$n≥N \Rarr |b_n| = |b-(b-b_n)| ≥ |b| - |b-b_n| > \frac{|b|}{2}$\\
+	Ferner: $\vert \frac{1}{b_n} - \frac{1}{b} \vert = 
+	\frac{\vert b - b_n \vert}{\vert b_n \vert \cdot |b|} = \frac{1}{|b|} \cdot \frac{2}{|b|} \cdot |b - b_n| (\forall n ≥ N)$\\
+	Sei $\e > 0$. $b_n \to b \Rarr \exists n_0 ≥ N: |b - b_n| < \frac{|b|^2}{2} \cdot \e \forall n ≥ n_0$\\
+	$\Rarr \left\vert \frac{1}{b_n} - \frac{1}{b}\right\vert < \e \forall n ≥ n_0$
+	\item Sei $|a_n - a| < \e \forall n ≥ n_o$\\
+	$\Rarr ||a_n| - |a|| ≤ |a_n - a| < \e \forall n≥n_0$
+}
 \subsection*{Beispiele}
 \enum{
 	\item $k\in \N \Rarr \lim\limits_{n\to \infty}\frac{1}{n^k} = 0$ Also $\frac{1}{n^2} \to 0, \frac{1}{n^3} \to 0$\\

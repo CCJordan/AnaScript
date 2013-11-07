@@ -1,0 +1,63 @@
+% Kopfzeile beim Kapitelanfang:
+\fancypagestyle{plain}{
+%Kopfzeile links bzw. innen
+\fancyhead[L]{\calligra\Large Vorlesung Nr. 8}
+%Kopfzeile rechts bzw. außen
+\fancyhead[R]{\calligra\Large 07.11.2013}
+}
+%Kopfzeile links bzw. innen
+\fancyhead[L]{\calligra\Large Vorlesung Nr. 8}
+%Kopfzeile rechts bzw. außen
+\fancyhead[R]{\calligra\Large 07.11.2013}
+% **************************************************
+%
+\section{Satz}
+\enum {
+	\item \ul{Vergleichskriterium}:\\
+	Seien $(a_n), (b_n) \subseteq \R$ Folgen mit $a_n \to a, b_n \to b$ und $a_n < b_n \forall n\in \N$ Dann gilt: $a ≤ b$
+	\item \ul{Speziell}\\ Sei $a_n \to a, A ≤ a_n ≤ B \forall n \Rarr A ≤ a ≤ B$
+	\item \ul{Sandwichregel}\\
+	Seien $(a_n), (c_n) \subseteq \R$ Folgen mit $a_n≤ c_n \forall n \in \N$ und $\lim\limits_{n\to \infty} a_n = a = \lim\limits_{n \to \infty} c_n$\\
+	Sei $(b_n) \subseteq \R$ weitere Folge mit $a_n ≤ b_n ≤ c_n \forall n \Rarr (b_n)$ konvergent und $\lim\limits_{n \to \infty} b_n = a$\\
+}
+Bemerkung: Die Bedingung $\forall n \in \N$ kann überall ersetzt werden durch $\forall n\in \N$ mit $n≥ N$.\\
+\subsection*{Beweise zu 5.8}
+\enum{
+	\item Angenommen $a > b$. Setzte $\e := a-b > 0$\\
+	$\Rarr \exists n_0\in \N : |a_n - a|<\frac{\e}{3} \forall n ≥ n_0$\\
+	$\Rarr 0 ≤ b_n-a_n = \underbrace{(b_n - b)}_{<\frac{\e}{3}} + \underbrace{(b - a)}_{-\e} + \underbrace{(a - a_n)} < -\frac{\e}{3}< 0 \lightning$
+	\item $|b_n - a| = |b_n - a_n + a_n -a|≤(b_n -a_n) + |a_n - a|≤ (c_n - a_n) + |a_n - a|$\\
+	$\Rarr S_n \to 0$\\
+	Sei $\e > 0 \Rarr \exists n_0 \in \N : S_n < \e \forall n ≥ n_0 \Rarr |b_n - a| < \e \forall n≥n_0$
+}
+\section{Definition: Monotone Folgen}
+Sei $(a_n) \subseteq \R$ Folge
+\enum{
+	\item $(a_n)$ monoton wachsend $\Leftrightarrow a_{n+1} ≥ a_n \forall n\in \N$\\
+	$(a_n)$ monoton fallend $\Leftrightarrow a_{n+1} ≤ a_n \forall n\in \N$
+}
+\section{Monotoniekriterium}
+Jede monotone und beschränkte Folge ist konvergent.\\
+Dabei gilt: $$\lim\limits_{n \to \infty} = 
+\begin{cases}
+	sup(a_n:n\in\N) & \text{falls} a_n \text{ monoton wachsend}\\
+	inf(a_n : n \in \N) & \text{falls } (a_n) \text{ monoton fallend}
+\end{cases}$$
+\subsection*{Beweis}
+$s:=sup(a_n : n\in\N)$ existiert, da $(a_n)$ beschränkt.\\
+Sei $\e > 0 \Rarr \exists n_0\in\N: a_{n_0} > s - \e$\\
+Monotonie von $(a_n)$\\
+$\Rarr s - \e < a_n ≤ a_n ≤ s \forall n ≥ n_0$\\
+$\Rarr |a_n - s| < \e \forall n ≥ n_0 \qed$ 
+\section*{Teilfolgen}
+Sei $X$ Menge, $(a_n)_{n\in \N} \subseteq X$ eine Folge in $X$.\\
+Ist $n_1< n_2 <n_3 < ... < n_k$ eine aufsteigende Folge von Indizes. \\
+$n_k\in\N$ so heißt $(a_n)_{k\in \N} = (a_{n_1}, a_{n_2}, ---)$ eine Teilfolge von $(a_n)$\\
+Ist $J = \{n_k : k \in \N\}$ so schreiben wir auch $(a_j)_{j\in J}$\\
+Ist $(a_n)_{k \in \N}$ konvergent mit Grenzwert $a$ $\Rarr$ Jede Teilfolge von $(a_n)$ konvergiert ebenfalls gegen $a$
+\section{Satz von Bolzano-Weierstraß}
+Jede beschränkte Folge $(a_n)_{n\in\N} \subseteq \R$ besitzt mindestens eine konvergente Teilfolge.
+\subsection*{Beweis}
+Wir zeigen: $(a_n)$ enthält eine monotone Teilfolge mit dem Monotoniekriterium ist diese Teilfolge konvergent.\\
+Dazu: $J:= \{j\in \N: a_j ≥ a_n \forall n≥j\}$\\
+Das heißt $j\in J \Leftrightarrow$ alle Folgenglieder ab dem $j$-ten sind ≤ $a_j$
