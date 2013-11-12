@@ -1,0 +1,89 @@
+\section{Definition: Cauchy-Folge}
+Eine Folge $(a_n)_{n\in \N}$ heißt Cauchy-Folge $\Leftrightarrow \forall \e > 0 \exists n_0\in \N : |a_n-a_m|<\e \forall n,m ≥ n_0$
+\section{Satz}
+Sei $(a_n)\subseteq \R$ konvergent $\Rarr$ $(a_n)$ ist Cauchy-Folge.\\
+\subsection*{Beweis:}
+$a_n \to a \Rarr |a_n - a_m| = |a_n - a + a -a_m| ≤ |a_n - a| + |a - a_m|$\\
+Wähle $n_0$ so groß, dass $|a_n - a| < \frac{\e}{2} \forall n ≥ n_0$\\
+$\Rarr \forall n, m ≥ n_0 : |a_n - a_m| < \frac{\e}{2} + \frac{\e}{2} = \e$\qed
+\section{Satz: Cauchy-Kriterium}
+Jede Cauchy-Folge $(a_n) \subseteq \R$ ist konvergent.\\
+\subsection*{Beweis}
+$(a_n)$ ist beschränkt, denn $\exists n_0 \in \N:|a_n - a_m|< 1 \forall n ≥ n_0$\\
+$\Rarr |a_n| ≤ max\{|a_1|, ...,|a_{n_0}|,|a_{n_0}| + 1\} < \infty$\\
+Bolzano-Weierstraß $\Rarr (a_n)$ hat konvergente Teilfolge $(a_{n_k})_{k\in\N}$\\
+$a:=\lim\limits_{k\to\infty} a_{n_k}$\\
+\ul{Behauptung}: $(a_n)_{n\in\N}$ konvergiert gegen $a$.\\
+\subsection*{Beweis}
+Sei $\e > 0 \Rarr |a_{n_k} - a| < \frac{\e}{2} \forall k ≥ N_1$\\
+$|a_n - a_m| < \frac{\e}{2} \forall n, m ≥ N_2$\\
+$k ≥ max\{N_1, N_2\} \Rarr |a_k - a| ≤ |a_k - a_{n_k}| + |a_{n_k} - a|$\\
+$\Rarr |a_k - a| < \e$
+\section{Definition: Uneigentliche Konvergenz}
+$(a_n)_{n\in \N} \subseteq \R$ heißt \ul{uneigentlich Konvergent} gegen $+∞$ [gegen $-∞$] falls gilt:\\
+$\forall M>0 \exists n\in \N:a_n>M \forall n ≥ n_0$\\
+$[\forall M>0 \exists n\in \N:a_n<-M \forall n ≥ n_0]$\\
+Schreibweise: $\lim\limits_{n\to ∞} a_n = +∞$
+\section{Lemma:}
+$\lim\limits_{n\to ∞} a_n = +∞ \Leftrightarrow \exists n_0 \in \N: a_n \neq 0 \forall n ≥ n_0$ und $\lim\limits_{n\to ∞} \frac{1}{a_n} = 0$\\
+Denn: Für $M>0$ gilt:\\
+$a_n > M \forall n ≥ n_0 \Leftrightarrow 0 < \frac{1}{a_n} < \frac{1}{M} \forall n ≥ n_0$
+\section{Definition: Landau-Symbole}
+Seien $(a_n), (b_n) \subseteq$ Folgen. Man schreibt:
+\enum{
+	\item $a_n = \mathcal{O}(b_n)$ für $n \to ∞$ falls $\exists C > 0$ und $n_0 \in \N: |a_n| ≤ C\cdot |b_n| \forall n ≥ n_0$\\
+	Anschaulich: $(a_n)$ wächst höchstens so schnell wie $(b_n)$
+	\item $a_n = \Theta (b_n)$ für $n\to ∞$, falls $a_n = \mathcal{O}(b_n)$ und $b_n = \mathcal{O}(a_n)$\\
+	$a_n$ und $b_n$ wachsen gleich schnell.
+	\item $a_n = \mathcal{o} (b_n)$ für $n\to ∞$ falls $\lim\limits_{n \to ∞} \frac{a_n}{b_n} = 0$\\
+	Das heißt $b_n$ wächst schneller als $(a_n)$
+}
+\chapter{Komplexe Zahlen}
+Motivation: Die Gleichung $x^2 + 1 = 0$ hat keine Lösung in $\R$ (denn $x\in \R \Rarr x^2 > 0 \Rarr x^2 + 1 > 0$)\\
+\ul{Ziel}: Konstruktion eines Körpers $\C$, der $\R$ umfasst und in dem $x^2 + 1 = 0$ lösbar ist.\\
+Vorüberlegung: Angenommen es gibt einen Körper $\C$ mit $\R \subseteq \C$ sodass $x^2 + 1 = 0$ eine Lösung $i \in \C$ hat.\\
+Rechenregeln in einem Körper $\Rarr x, y, u, v \in \R$ gilt:\\
+\enum {
+	\item $(x + iy) + (u + iv) = (x + u) + i(y + v)$
+	\item $(x + iy) \cdot (u + iv) = xu + i^2(yv) + i(xv + yu) = xu -yv + i(xv +yu)$
+}
+\section{Definition Körper der komplexen Zahlen}
+Addition: $(x, y) + (u, v) = (x + u, y + v)$\\
+Multiplikation: $(x, y) \cdot (u, v) = (xu -yv, xv + yu)$
+\section{Satz: Die Komplexen Zahlen bilden einen Körper}
+$(\C, +, \cdot)$ ist ein Körper (Körper der Komplexen Zahlen)
+\subsection*{Beweis}
+$+, \cdot$ sind kommutativ, + ist assoziativ, Distributiv-Gesetze sind erfüllt.
+Neutrale Elemente:\\
+Bezüglich Addition: 0 = (0, 0)\\
+Bezüglich Multiplikation: 1 = (1, 0)\\
+Inverse: -(x, y) = (-x, -y)\\
+$(x, y) \neq 0 \Rarr (x, y)^{-1} = \left(\frac{x}{x^2 + y^2}, \frac{-y}{x^2 + y^2}\right)$\\
+\section*{$\R$ als Teilkörper von $\C$}
+$(x, 0) + (y, 0) = (x + y, 0)$ \\
+Man identifiziert daher $x \in \R$ mit $(x, 0) \in \C$ und fasst $\R$ als Teilkörper von $\C$ auf.\\
+Bezeichnung: $i := (0,1) \in \C$ nennen wir \ul{Imaginäre Einheit}\\
+Damit $i^2 = (0,1) \cdot (0,1) = (-1, 0) = -1$\\
+$\Rarr i $ und $-i = -1 \cdot i$ lösen die Gleichung $x^2 + 1 = 0$\\
+Ferner: $\C \ni z = (x, y) \Leftrightarrow z = (x, 0) + (0, y)$\\
+$\Leftrightarrow z = x + iy$\\
+Jedes $z \in \C$ hat daher eine eindeutige Darstellung der Form:\\
+$$z=x+iy \text{mit x, z \in $\R$}$$
+\section{Definition}
+Sei $z = x + iy \in \C$ mit $(x, y \in \R)$
+$Re(z) := x$ \ul{Realteil} von $z$\\
+$Im(z) := y$ \ul{Imaginärteil} von $z$\\
+$z$ heißt reell, falls $Im(z) = 0$, $z$ heißt imaginär, falls $Re(z) = 0$
+%TODO Geometrische Veranschaulichung
+\section{Komplexe Konjugation und Betrag}
+Sei $z = x + iy \in \C$ mit $x, y \in \R$\\
+$\bar{z} = x - iy$ \ul{komlex Konjugierte Zahl}\\
+Geometrisch: $z \mapsto \bar{z}$ ist die Spiegelung an der Reellen Achse.
+\section{Eigenschaften der komplex konjugierten Zahl}
+\enum{
+	\item $\bar{z} = z$
+	\item $\bar{z + w} = \bar{z} + \bar{w}$
+	\item $z + \bar{z}$
+	\item $z + \bar{z} = 2 Re(z)$, $z \cdot \bar{z} = 2 Im(z)$
+	\item $z = \bar{z} $
+}
