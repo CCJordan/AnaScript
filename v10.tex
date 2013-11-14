@@ -1,0 +1,101 @@
+% Kopfzeile beim Kapitelanfang:
+\fancypagestyle{plain}{
+%Kopfzeile links bzw. innen
+\fancyhead[L]{\calligra\Large Vorlesung Nr. 10}
+%Kopfzeile rechts bzw. außen
+\fancyhead[R]{\calligra\Large 14.11.2013}
+}
+%Kopfzeile links bzw. innen
+\fancyhead[L]{\calligra\Large Vorlesung Nr. 10}
+%Kopfzeile rechts bzw. außen
+\fancyhead[R]{\calligra\Large 14.11.2013}
+% **************************************************
+%
+\subsection{Beweis zu 3.}
+$z = x+iy\ , w = u+iv \Rarr \bar{zw} = \bar{(x+iy) (u+iv)} = \bar{xu - yv + i(yu + xv)} = xu - yv + i(yu + xv) = (x-iy)(u-iv)$
+\section{Definition: Betrag von $z = x+iy$}
+$|z| = \sqrt{x^2 + y^2} = z\bar{z}$
+\section{Eigenschaften des Betrags}
+\enum{
+	\item $|z| ≥ 0, |z| = 0 \Leftrightarrow z = 0$
+	\item $|\bar{z}| = |z|$
+	\item $|Re(z)| ≤ |z|, |Im(z)| ≤ |z|$
+	\item $|z\cdot w| = |z|\cdot |w|$
+	\item $|z+w|≤|z|+|w|$ Dreiecksungleichung
+	\item $||z|-|w|| ≤ |z - w|$
+}
+\subsection*{Beweis zu 4:}
+$|z\cdot w|^2 = z\cdot w \cdot \bar{z\cdot w} = z\cdot \bar{z} \cdot w \cdot \bar{w} = |z|^2 \cdot |w|^2$\\
+Wurzelziehen $\Rarr |zw| = |z|\cdot |w|$
+\subsection*{Beweis zu 5:}
+$|z+w|^2=(z+w)(\bar{z+w}) = (z+w)(\bar{z} + \bar{w}) = z\bar{z} + (z\bar{w} + \bar{z} + w)+ w\bar{w}$\\
+$=|z|^2 + 2 Re(z\cdot \bar{w}) + |w|^2 ≤ (|z|+|w|)^2$
+\subsection*{Beweis zu 6:}
+6 folgt aus 5 wie für $\R$
+\bem
+\enum{
+	\item Sei $a\in \C, r > 0 \Rarr \{z\in \C: |z-a|=r\}$
+	\item Zum invertieren von $\C$:\\
+	Sei $z = x + iy \in \C, z \neq 0$\\
+	$\Rarr \frac{1}{z} \frac{\bar{z}}{z\cdot \bar{z}} = \frac{x - iy}{x^2 + y^2} = \frac{x}{x^2 + y^2} - i \frac{y}{x^2 + y^2}$
+	\item Es gibt keine Anordnung ">" auf $\C$ bezüglich der komplexen Zahlen.\\
+	Denn, sonst wäre $i^2 = -1 > 0 \Rarr 1 < 0$ \lightning\\
+	Aber $1 > 0$ in jedem angeordneten Körper.
+	$z>w, z>0$ macht in $\C$ keinen Sinn, nur die Beträge der komplexen Zahlen kassen sich der Größe nach vergleichen.\\
+	Geometrische interpretation von $+, \cdot$\\
+	\begin{description}
+		\item[Addition] $z=x+iy, w=u+iv \Rarr z + w = (x + u) + i(y + v) $\\
+		Vektoraddition in $\R^2$
+		\item[Multiplikation] $z, w \in \C \Rarr |zw| = |z| \cdot |w|$\\
+		Wir werden sehen: $zw$ entsteht z, w durch Multiplikation der Beträge und Addition der Winkel zur $\R$-Achse.
+	\end{description}
+}
+\section*{Quadratische Gleichungen in den komplexen Zahlen}
+Seien $p, q \in \C$ Betrachte die Gleichung:
+$(*) z^2 + pz + q = 0$\\
+Lösung in $\C$?\\
+$(*) \Leftrightarrow \left(z + \frac{p}{2}\right)^2 = -q + \frac{p^2}{4} =: C$\\
+Sei $c = a + ib \in \C (a, b \in \R)$\\
+Gesucht: $z \in \C$ mit $z^2 = c$ \\
+Mit $z$ ist dann auch $-z$ eine Lösung.\\
+Ansatz: $z = x +iy (x, y \in \R)$\\
+$z^2 = c \Leftrightarrow (x+ iy)^2  = a + ib$\\
+$\Leftrightarrow x^2 + 2ixy -y^2 = a+ib$\\
+$\Leftrightarrow x^2-y^2 = a \wedge 2xy = b$\\
+Vergleich der Real- und Imaginärteile.\\
+Beachte: 2 komplexe Zahlen sind genau dann gleich, wenn ihre Real- und Imaginärteile gleich sind. Auflösen nach $x, y$ liefert 2 komplexe Lösungen. $z_1 = x_1 + iy_1, z_2 = -z_1$\\
+Schreibe: $z_{1,2} = ±\sqrt{c}$\\
+Damit hat $(*)$ die Lösungen $z_{1/2} = -\frac{p}{2} ± \sqrt{\frac{p^2}{4} -q}$\\
+\section*{Algebraische Gleichungen in den komplexen Zahlen}
+Eine algebraische Gleichung in $\C$ ist eine Gleichung der Form 
+$$z^n + a_{n-1}z^{n-1} + ... + a_1 + a_0 = 0$$
+mit Koeffizienten $a_0, ... a_{n-1} \in \C, n\in \N$ und unbekannter $z\in \C$
+\section{Satz: Fundamentalsatz der Algebra}
+Jede algebraische Gleichung hat mindestens eine Lösung im $\C$\\
+(Hier ohne Beweis)
+\subsection*{Polynome}
+Hier $\mathbb{K}$ einer der Körper $\R$ oder $\C$.
+\subsection*{Vorbemerkung}
+Seien $f, g: X \to \mathbb{K}$ Funktionen (X Menge, z.B. $\R, \C$)
+Definiere $f±g$, $f\cdot g: X \to \mathbb{K}$\\
+$(f±g)(x) = f(x) ± g(x)$, $(f\cdot g)(x)= f(x) \cdot g(x)$\\
+Ferner $\frac{f}{g}:\{x\in X: g(x) \neq 0 \forall x \to \mathbb{K}\} \Rarr\left(\frac{f}{g}\right)(x) \frac{f(x)}{g(x)}$
+\section*{Definition}
+Eine Funktion $p:\mathbb{K} \to \mathbb{K}$ der Form $p(x) = a_nx^n + a_{n-1}x^{n-1} + ... + a_1x + a_0$\\
+Mit $n\in \N, a_0, ..., a_n \in \mathbb{K}$ heißt Polynomfunktion, kurz Polynom. über $\mathbb{K}$\\
+Ist $a_n \neq 0$ so heißt $n$ der \ul{Grad} von $p$.\\
+$n = grad(p)$\\
+Sind alle $a_i = 0$ so heißt $p$ Nullpolynom.\\
+$grad(0) = -∞$\\
+$\mathcal{P}_{\mathbb{K}} := \{p:\mathbb{K} \to \mathbb{K}: p \text{ Polynom}\}$\\
+Summen und Produkte von Polynomen sind wieder Polynome.\\
+\section{Satz: Polynomdivision mit Rest}
+Seien $p. q \in \mathcal{P}_{\mathbb{K}}, q = 0$\\
+Es gibt eindeutige $r, s \in \mathcal{P}_{\mathbb{K}}$ mit\\
+$p = sq + r$ wobei $grad(r) < grad(q)$
+(Nehmen Sie es hin. Beweis evtl. in LinA.)
+\subsection*{Bezeichnung}
+Ist $r = 0$ in 6.10. das heißt, $p = sq$, so heißt $q$ ein Teiler von $p$\\
+$\alpha \in \mathbb{K}$ heißt \ul{nullstelle} von $p in \mathcal{P}_{\mathbb{K}}$ falls p(x)=0
+\section{Korrolar: Abspalten von Linearfaktoren}
+Sei$ p(x) = 0 \Rarr \exists! s \in \mathcal{P}_{\mathbb{K}}$ $p(x) = (x - \alpha) \cdot s(x)$ dabei gilt $grad(s) = grad(p) -1$
