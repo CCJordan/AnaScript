@@ -80,7 +80,7 @@ Seien $f, g: X \to \mathbb{K}$ Funktionen (X Menge, z.B. $\R, \C$)
 Definiere $f±g$, $f\cdot g: X \to \mathbb{K}$\\
 $(f±g)(x) = f(x) ± g(x)$, $(f\cdot g)(x)= f(x) \cdot g(x)$\\
 Ferner $\frac{f}{g}:\{x\in X: g(x) \neq 0 \forall x \to \mathbb{K}\} \Rarr\left(\frac{f}{g}\right)(x) \frac{f(x)}{g(x)}$
-\section*{Definition}
+\section{Definition}
 Eine Funktion $p:\mathbb{K} \to \mathbb{K}$ der Form $p(x) = a_nx^n + a_{n-1}x^{n-1} + ... + a_1x + a_0$\\
 Mit $n\in \N, a_0, ..., a_n \in \mathbb{K}$ heißt Polynomfunktion, kurz Polynom. über $\mathbb{K}$\\
 Ist $a_n \neq 0$ so heißt $n$ der \ul{Grad} von $p$.\\
@@ -99,3 +99,5 @@ Ist $r = 0$ in 6.10. das heißt, $p = sq$, so heißt $q$ ein Teiler von $p$\\
 $\alpha \in \mathbb{K}$ heißt \ul{nullstelle} von $p in \mathcal{P}_{\mathbb{K}}$ falls p(x)=0
 \section{Korrolar: Abspalten von Linearfaktoren}
 Sei$ p(x) = 0 \Rarr \exists! s \in \mathcal{P}_{\mathbb{K}}$ $p(x) = (x - \alpha) \cdot s(x)$ dabei gilt $grad(s) = grad(p) -1$
+\subsection*{Beweis}
+Polynomdivision mit $q(x)x-\alpha \Rarr p(x) = (x-\alpha)\cdot s(x) + r, r \in \K$ da $grad(r) ≤ 0$, $p(\alpha) = 0 \Rarr r = 0$

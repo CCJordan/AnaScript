@@ -1,0 +1,88 @@
+% Kopfzeile beim Kapitelanfang:
+\fancypagestyle{plain}{
+%Kopfzeile links bzw. innen
+\fancyhead[L]{\calligra\Large Vorlesung Nr. 11}
+%Kopfzeile rechts bzw. außen
+\fancyhead[R]{\calligra\Large 18.11.2013}
+}
+%Kopfzeile links bzw. innen
+\fancyhead[L]{\calligra\Large Vorlesung Nr. 11}
+%Kopfzeile rechts bzw. außen
+\fancyhead[R]{\calligra\Large 18.11.2013}
+% **************************************************
+%
+\setcounter{section}{11}
+\setcounter{chapter}{6}
+
+\section{Definition}
+Ist $p$ durch $(x-\alpha)^k$ teilbar also nicht durch $(x-\alpha)^{k+1}$ mit $(k\in \N)$, so heißt $\alpha$ k-fache Nullstelle von $p$.\\
+Dann: $p(x) = (x-\alpha)^k \cdot q(x)$, $grad(q) = grad(p) - k, q(\alpha) \neq 0$
+\section{Folgerung}
+\enum{
+	\item Ist $grad(p) = n \in \N_0 \Rarr p$ hat höchstens n Nullstellen in $\K$ (mit Vielfachheiten gezählt.)
+	\item \ul{Identitätssatz} für Polynome: Sei $p(x) = a_nx^n + ... + a_1x + a_0 \in \mathcal{P}_\K$\\
+	Angenommen, $p$ hat mindestens $n+1$ Nullstellen \Rarr $p=0$ (Nullpolynom) d.h. $a_n = ... = a_0 = 0$\\
+	Der Fundamentalsatz der Algebra besagt: Jedes Komplexe Polynom $p\in \mathcal{P}_\C$ mit $grad(p) ≥ 1$ hat mindestens eine Nullstelle in $\C$\\
+	Abspalten des Nullstellen-Linearfaktors und Iteration liefert:
+}
+\section{Satz}
+Sei $p\in \mathcal{P}_\C$, $grad(p) = n \in \N \Rarr p$ zerfällt in Linearfaktoren über $\C$, das heißt: \\
+$p(x) = c (x-\alpha_1) \cdot ... \cdot (x-\alpha_n), c\in \C \setminus \{0\}, \alpha_1, ..., \alpha_n$ die Nullstelle von $p$\\
+\section{Definition: Folgen in den Komplexen Zahlen}
+\enum{
+	\item $(z_n)$ heißt \ul{konvergent} mit Grenzwert $z\in\C \Leftrightarrow \forall \e > 0 \exists n_0 \in \N : |z_n - z| < \e \forall n > n_0$
+	\item $(z_n)$ heißt \ul{Cauchy-Folge} $\Leftrightarrow \forall \e > 0 \exists n_0 \in \N: |z_n-z_m| < \e \forall n,m ≥ n_0$
+	\item $(z_n)$ beschränkt $\Leftrightarrow \exists M > 0: |z_n| ≤ M \forall n \in \N$
+}
+\section{Lemma}
+Sei $(z_n)\subseteq \C$ und $z_n = x_n + iy_n (x_n, y_n \in \R)$
+\enum{
+	\item $z_n \to z$ mit $z = x+iy$ $(x, y \in \R)$\\
+	$\Leftarrow x_n \to x$ in $\R$ und $y_n \to y$ in $\R$\\
+	$\Leftrightarrow Re(z_n) \to Re(z)$ und $Im(z) \to Im(z)$
+	\item $(z_n)$ ist Cauchy-Folge in $\C \Leftrightarrow$ $Re(z_n)$ und $Im(z_n)$ sind Cauchy-Folgen in $\R$
+}
+\section{Lemma}
+Jede Folge in $\C$ hat höchstens einen Grenzwert.\\
+Jede Konvergente Folge in $\C$ ist beschränkt
+\section{Rechenregeln}
+Seien $(a_n), (b_n) \subseteq \C$ Folgen mit $a_n \to a$ und $b_n \to b$
+\enum{
+	\item $a_n + b_n \to a+b$
+	\item $a_n \cdot b_n \to a \cdot b$
+	\item ist $b \neq 0 \Rarr \exists N\in \N : b_n \neq 0 \forall n ≥ n$  und $\frac{a_n}{b_n} \to \frac{a}{b}$
+	\item $|a_n| \to a$
+	\item $\bar{a_n} \to a$
+}
+\section{Satz: Cauchy-Kriterium in den komplexen Zahlen}
+Für eine Folge $(z_n) \subseteq \C$ gilt: $(z_n)$ ist Cauchy-Folge $\Leftrightarrow (z_n)$ konvergent\\
+Denn: $z_n = x_n + iy_n$ $(z_n)$ Cauchy-Folge $\Leftrightarrow (x_n), (y_n)$ sind Cauchy-Folgen $\Leftrightarrow (x_n)$ und $(y_n)$ konvergent in $\R \Leftrightarrow (z_n)$ konvergent in $\C$
+\section{Satz von Bolzano-Weierstraß in den komplexen Zahlen}
+Jede beschränkte Teilfolge $(z_n) \subseteq \C$ hat eine konvergente Teilfolge
+\chapter{Reihen}
+Sei $(a_n)_{k\in\N}$ eine Folge in $\R$. Betrachte für jedes $n \in \N$:
+$$s_n = \ds\sum_{n}^{k = 1} a_k (\text{n-te Partialsumme})$$
+Also $s_1 = a_1$, $s_2 = a_1 + a_2$ etc.\\
+Die Partialsummen bilden eine Folge $(s_n)_{n\in\N}$.
+\section{Definition}
+Sei $(a_k)_{k\in\N}$ Die (unendliche) Reihe $\sum_{k=1}^{∞} a_k$ mit Gliedern $a_k$ ist definiert als die Folge der Partialsummen $(s_n)_{n\in\N}: s_n = \sum_{k=1}^{∞} a_k$\\
+Die Reihe $\sum_{k=1}^{∞} a_k$ heißt konvergent genau dann, wenn $(s_n)_{n\in\N}$ konvergent.\\
+Man schreibt:\\
+$\sum_{k=1}^{∞} a_k = \lim\limits_{n\to ∞} s_n = \lim\limits_{n\to ∞} \sum_{k=1}^{∞} a_k$ (Wert der Reihe)\\
+Also: $\sum_{k=1}^{∞} a_k$ bezeichnet sowohl die Partialsummenfolge, als auch ihren Grenzwert im Fall der Konvergenz.
+\section{Beispiele}
+\enum{
+	\item \ul{Geometrische Reihe}: $\sum_{k=1}^{∞} z^k, z \in \C, z^0 = 1$\\
+	$s_n = \sum_{k=1}^{∞} z^k = 1 + z + z^2 + ... z^n$
+	\enum{
+		\item[1. Fall] $z = 1 \Rarr s_n = n+1 \to +∞$ für $n\to ∞ \Rarr \sum_{k=1}^{∞} 1^k = ∞$ Die Reihe divergiert.
+		\item[2. Fall] $z ≠ 1 s_n = \frac{1-z^k}{1-z}$
+	}
+	$|z|<1 \Rarr \lim\limits_{n\to ∞} s_n = \frac{1}{1-z}$\\
+	$|z|>1 \Rarr (s_n)$ divergiert
+	\item $\sum_{k=1}^{∞} k$ divergiert, da $s_n = \frac{1}{2}n(n + 1)$ unbeschränkt
+	\item $\sum_{k=1}^{∞} \frac{1}{k(k + 1)} = \frac{A}{k} + \frac{B}{k+1}$ mit $A, B \in \R \Leftrightarrow \frac{1}{k(k+1)} = \frac{A(k+1) + Bk}{k(k+1)} A=1, B = -1$\\
+	Also: $\frac{1}{k(k+1)} = \frac{1}{k} - \frac{1}{k+1}$\\
+	$\Rarr s_n = \sum_{k=1}^{∞} \frac{1}{k(k+1)} = \sum_{k=1}^{∞} \left(\frac{1}{k} - \frac{1}{k(k+1)}\right) = 1 - \frac{1}{n+1}, n\to ∞$\\
+	$\Rarr \sum_{k=1}^{∞} \frac{1}{k(k+1)} = 1$
+}
