@@ -1,0 +1,82 @@
+% Kopfzeile beim Kapitelanfang:
+\fancypagestyle{plain}{
+%Kopfzeile links bzw. innen
+\fancyhead[L]{\calligra\Large Vorlesung Nr. 14}
+%Kopfzeile rechts bzw. außen
+\fancyhead[R]{\calligra\Large 28.11.2013}
+}
+%Kopfzeile links bzw. innen
+\fancyhead[L]{\calligra\Large Vorlesung Nr. 14}
+%Kopfzeile rechts bzw. außen
+\fancyhead[R]{\calligra\Large 28.11.2013}
+% **************************************************
+%
+\section*{Bemerkung}
+Statt Basis 10 kann man eine beliebige andere Zahl $b\in\N, b≥2$ als Basis wählen. Analog zu Satz 8.2 gilt:
+$$x = ±\sum_{k=-N}^{∞}a_kb^{-k} \text{mit } N\in\N_0, a_k\in\{0,...,b-1\}$$
+$b = 2$ Dualsystem, $a_k = \{0,1\}$\\
+$b = 8$ Oktalsystem, $a_k = \{0,...,7\}$ (vor 1980 in der Informatik)
+\section*{Abzählbare Mengen, Mächtigkeit}
+\section{Definition: gleichmächtige Mengen}
+\enum{
+	\item 2 Mengen $X, Y$ heißen \ul{gleichmächtig} kurz: $X\~ Y$\\
+	$\exists$ bijektive Abbildung: $f:X\to Y$
+	\item $X$ abzählbar unendlich $\Leftrightarrow X\~ \N$
+	\item $X$ abzählbar $\Leftrightarrow X$ endlich (auch $X = \emptyset$ möglich) oder abzählbar unendlich
+	\item $X$ überabzählbar $\Leftrightarrow$ $X$ nicht abzählbar
+}
+Abzählbar unendlich sind zum Beispiel:
+\begin{itemize}
+	\item $\N$
+	\item $\N_0$; $f:N\to \N_0, n \mapsto n+1$ ist bijektiv
+	\item $\Z$ bijektive Abbildung: $f: \N\to \Z$
+\end{itemize}
+Achtung $\N \subsetneqq \N_0 \subsetneqq \Z$, aber alle drei sind gleichmächtig.
+\section{Lemma}
+$X \neq \emptyset$ abzählbar $\Leftrightarrow \exists$ surjektive Abbildung $f:\N \to X$ d.h. mit $x_i = f(i)$ gilt.
+\section{Satz: Vereinigung von abzählbar vielen abzählbaren Mengen}
+Seien $X_n (n\in\N)$ abzählbare Mengen $\Rarr X\underset{n\in\N}{\bigcup} X_n$ ist abzählbar.
+\section{Korollar: $\Q$ ist abzählbar}
+$\Q = \underset{n\in\N}{\bigcup} \{\frac{k}{n}: k\in\Z\}$
+\section{Satz: $\R$ ist überabzählbar}
+Beweis: (Cantorsches Diagonalverfahren)\\
+Wir zeigen, dass bereits $(0,1)$ überabzählbar.\\
+Angenommen $(0,1)$ sei abzählbar. $(0,1) = \{x_1, x_2, x_3,...\}$\\
+$x_n$ in Dezimaldarstellung (ohne $\overline{9}$)\\
+$x_1 = 0,a_{11}a_{12}a_{13}a_{14}...$\\
+$x_2 = 0,a_{21}a_{22}a_{23}a_{24}...$\\
+$x_3 = 0,a_{31}a_{32}a_{33}a_{34}...$\\
+\vdots
+$z_i = 0,z_{1}z_{2}z_{3}z_{4}$... mit $z_n = \begin{cases}
+5 \text{ falls } a_n \neq 5\\
+4 \text{ falls } a_n = 5
+\end{cases}$\\
+\section{Satz Exponentialreihe}
+Für jedes $z\in\C$ ist die \ul{Exponentialreihe}
+$$exp(z) = \sum_{n=0}^{∞} \frac{z^n}{n!} \text{absolut konvergent}$$
+\subsection*{Beweis}z=0 $\Rarr$ Konvergenz: klar, $exp(0) = 1$\\
+$z\neq 0$: Quotientenkriterium: $a_n=\frac{z^n}{n!}\neq 0$\\
+$\left| \frac{a_{n+1}}{a_n} \right| = \left| \frac{z^{n+1}}{(n+1)!} \cdot \frac{n!}{z^n} \right| = \frac{1}{n+1}|z| \to 0$ für $n \to ∞$
+\section{Definition: Exponentialfunktion}
+Die Funktion $exp:z\mapsto exp(z), \C \to \C$ heißt \ul{Exponentialfunktion}\\
+Beachte: $x\in\R \Rarr exp(x) = \sum_{n=0}^{∞}\frac{x^n}{n!}$\\
+Spezielle Werte: \begin{itemize}
+\item $exp(0) = 1$
+\item $exp(1) = \sum_{n=0}^{∞} \frac{1}{n!} = e$
+\end{itemize}
+$e$: \ul{Eulersche Zahl}, $e \approx 2,718$
+\section{Satz: Funktionalgleichung}
+$\forall z, w\in\C: exp(z+w) = exp(z) \cdot exp(w)$
+\subsection*{Beweis}
+Exp-Reihe ist absolut konvergent $\Rarr$ Cauchyprodukt bildbar.\\
+$exp(z) \cdot exp(w) = \left(\sum_{j=0}^{∞} \frac{z^j}{j!}\right) \cdot \left(\sum_{k=0}^{∞} \frac{w^k}{k!}\right) =\sum_{n=0}^{∞} c_n$\\
+mit $c_n = \sum_{j=0}^{n} \frac{z^j}{j!} \cdot \frac{w^{n-j}}{(n-j)!} = \frac{1}{n!}\sum_{j=0}^{n}z^j\cdot w^{n-j} = \frac{1}{n!}(z+w)^n$
+\section{Folgerungen}
+\enum{
+	\item $exp(z) \neq 0 \forall z\in \C$ und $exp(-z) = \frac{1}{exp(z)}$
+	\item $x\in \R \Rarr exp(x) > 0$
+	\item $z\in\C, n\in\Z \Rarr exp(nz) = (exp(z))^n$\\
+	insbesondere: $z=1 \Rarr exp(n) = e^n$
+	\item $p\in\Z, q\in\N \Rarr exp\left(\frac{p}{q}\right) = \sqrt[q]{e^p} = e^\frac{p}{q}$
+}
+Schreibweise: $e^z:= exp(z)$

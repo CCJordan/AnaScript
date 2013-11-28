@@ -12,24 +12,24 @@
 % **************************************************
 %
 \subsection{Beweis zu 3.}
-$z = x+iy\ , w = u+iv \Rarr \bar{zw} = \bar{(x+iy) (u+iv)} = \bar{xu - yv + i(yu + xv)} = xu - yv + i(yu + xv) = (x-iy)(u-iv)$
+$z = x+iy\ , w = u+iv \Rarr \overline{zw} = \overline{(x+iy) (u+iv)} = \overline{xu - yv + i(yu + xv)} = xu - yv + i(yu + xv) = (x-iy)(u-iv)$
 \section{Definition: Betrag von $z = x+iy$}
-$|z| = \sqrt{x^2 + y^2} = z\bar{z}$
+$|z| = \sqrt{x^2 + y^2} = z\overline{z}$
 \section{Eigenschaften des Betrags}
 \enum{
 	\item $|z| ≥ 0, |z| = 0 \Leftrightarrow z = 0$
-	\item $|\bar{z}| = |z|$
+	\item $|\overline{z}| = |z|$
 	\item $|Re(z)| ≤ |z|, |Im(z)| ≤ |z|$
 	\item $|z\cdot w| = |z|\cdot |w|$
 	\item $|z+w|≤|z|+|w|$ Dreiecksungleichung
 	\item $||z|-|w|| ≤ |z - w|$
 }
 \subsection*{Beweis zu 4:}
-$|z\cdot w|^2 = z\cdot w \cdot \bar{z\cdot w} = z\cdot \bar{z} \cdot w \cdot \bar{w} = |z|^2 \cdot |w|^2$\\
+$|z\cdot w|^2 = z\cdot w \cdot \overline{z\cdot w} = z\cdot \overline{z} \cdot w \cdot \overline{w} = |z|^2 \cdot |w|^2$\\
 Wurzelziehen $\Rarr |zw| = |z|\cdot |w|$
 \subsection*{Beweis zu 5:}
-$|z+w|^2=(z+w)(\bar{z+w}) = (z+w)(\bar{z} + \bar{w}) = z\bar{z} + (z\bar{w} + \bar{z} + w)+ w\bar{w}$\\
-$=|z|^2 + 2 Re(z\cdot \bar{w}) + |w|^2 ≤ (|z|+|w|)^2$
+$|z+w|^2=(z+w)(\overline{z+w}) = (z+w)(\overline{z} + \overline{w}) = z\overline{z} + (z\overline{w} + \overline{z} + w)+ w\overline{w}$\\
+$=|z|^2 + 2 Re(z\cdot \overline{w}) + |w|^2 ≤ (|z|+|w|)^2$
 \subsection*{Beweis zu 6:}
 6 folgt aus 5 wie für $\R$
 \bem
@@ -37,7 +37,7 @@ $=|z|^2 + 2 Re(z\cdot \bar{w}) + |w|^2 ≤ (|z|+|w|)^2$
 	\item Sei $a\in \C, r > 0 \Rarr \{z\in \C: |z-a|=r\}$
 	\item Zum invertieren von $\C$:\\
 	Sei $z = x + iy \in \C, z \neq 0$\\
-	$\Rarr \frac{1}{z} \frac{\bar{z}}{z\cdot \bar{z}} = \frac{x - iy}{x^2 + y^2} = \frac{x}{x^2 + y^2} - i \frac{y}{x^2 + y^2}$
+	$\Rarr \frac{1}{z} \frac{\overline{z}}{z\cdot \overline{z}} = \frac{x - iy}{x^2 + y^2} = \frac{x}{x^2 + y^2} - i \frac{y}{x^2 + y^2}$
 	\item Es gibt keine Anordnung ">" auf $\C$ bezüglich der komplexen Zahlen.\\
 	Denn, sonst wäre $i^2 = -1 > 0 \Rarr 1 < 0$ \lightning\\
 	Aber $1 > 0$ in jedem angeordneten Körper.

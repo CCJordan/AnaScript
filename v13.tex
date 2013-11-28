@@ -1,0 +1,69 @@
+% Kopfzeile beim Kapitelanfang:
+\fancypagestyle{plain}{
+%Kopfzeile links bzw. innen
+\fancyhead[L]{\calligra\Large Vorlesung Nr. 13}
+%Kopfzeile rechts bzw. außen
+\fancyhead[R]{\calligra\Large 25.11.2013}
+}
+%Kopfzeile links bzw. innen
+\fancyhead[L]{\calligra\Large Vorlesung Nr. 13}
+%Kopfzeile rechts bzw. außen
+\fancyhead[R]{\calligra\Large 25.11.2013}
+% **************************************************
+%
+Vorsicht in 1) genügt nicht, dass $\frac{a_{n+1}}{a_n} < 1 \forall n≥n_0$, es muss gelten kleiner $q$.\\
+Gegenbeispiel:\\
+$\sum_{n=1}^{∞} \frac{1}{n}$ divergiert, obwohl $\left| \frac{a_{n+1}}{a_n} \right| = \frac{n}{n+1} < 1 \forall n$\\
+Aber: $\frac{n}{n+1} \to 1 \Rarr \not\exists q$ wie in 1) gefordert. Konvergenz nicht mit Quotientenkriterium entscheidbar.
+\section{Korollar}
+Angenommen $R:=\lim\limits_{n\to ∞} \left| \frac{a_{n+1}}{a_n} \right| \in [0, ∞]$ existiere,\\
+\enum{
+	\item $R < 1$ \Rarr Reihe absolut konvergent
+	\item $R > 1$ \Rarr Reihe divergiert
+	\item $R = 1$ \Rarr Konvergenz kann nicht mit QK entschieden werden
+}
+\subsection*{Beispiel}
+$z\in\C \Rarr \sum_{n=1}^{∞} nz^n$ konvergiert absolut für $|z|<1$:\\
+$\left|\frac{a_{n+1}}{a_n}\right| = \left| \frac{(n+1) z ^{n+1}}{nz^n} \right| = \frac{n+1}{n} |z| \to |z| < 1$
+Was passiert, wenn man die Glieder einer Reihe umordnet? %TODO hübsch machen
+\subsection*{Beispiel}
+Alternierende Reihe: $\sum_{k=1}^{∞} \frac{(-1)^k-1}{k} = 1 - \frac{1}{2} + \frac{1}{3} + \frac{1}{4} \mp =: s$\\
+$s = \left(1-\frac{1}{2}\right) + \left(\frac{1}{3} - \frac{1}{4}\right) + \left(\frac{1}{5} - \frac{1}{6}\right) > \frac{1}{2}$\\
+$s' = 1 - \frac{1}{2} - \frac{1}{4} + \frac{1}{3} - \frac{1}{6} - \frac{1}{8} + ... + \left(\frac{1}{2k-k} - \frac{1}{4k-2} - \frac{1}{4k}\right)$\\
+$= \frac{1}{2}\left[  \left(1-\frac{1}{2}\right) + \left(\frac{1}{3} - \frac{1}{4}\right) + \left(\frac{1}{5} - \frac{1}{6}\right) \right] = \frac{1}{2}s$ 
+\section{Satz: Umordnungssatz}
+Sei $\sum_{n=1}^{∞} a_n$ \ul{absolut} konvergent und $\sigma:\N \to \N$ bijektiv (Permutationsindizes) $\Rarr \sum_{n=1}^{∞} a_{\sigma(n)}$ konvergiert absolut und $\sum_{n=1}^{∞} a_{\sigma(n)} = \sum_{n=1}^{∞} a_n$
+\section*{Idee zur Multiplikation von Reihen}
+Seien $A = \sum_{j=1}^{∞} a_j$ und $B = \sum_{k=1}^{∞} b_k$ konvergente Reihen in $\C$.\\
+Idee: $A\cdot B = (a_0 + a_1 + a_2 + a_3 + ... a_n) \cdot (b_0 + b_1 + b_2 + b_3 + ... + b_n)\\
+= (a_0b_0) + (a_0b_1 + a_1b_0) + (a_2b_0 + a_1b_1 + a_0b_2) + ...$\\
+Stets richtig, falls A und B endliche Summen, für unendliche Reihen nicht ohne Einschränkung richtig.
+\section{Satz: Cauchyprodukt von Reihen}
+Seien $\sum_{j=1}^{∞} a_j$ und $\sum_{k=1}^{∞} b_k$ \ul{absolut konvergente} Reihen $(a_j, b_k \in \C)$\\
+Setze $c_n = \sum_{j=1}^{∞} a_jb_{n-j} = \sum_{(j,k): j+k = n}^{∞} a_jb_k (n\in\N) \Rarr \sum_{n=0}^{∞} c_n$ konvergiert absolut und:
+$$ \left(\sum_{j=0}^{∞} a_j\right) \cdot \left(\sum_{k=0}^{∞} b_k\right) = \sum_{n=0}^{∞} c_j = \sum_{n=ß}^{∞} \sum_{j=0}^{n} a_jb_{n-j}$$
+\chapter{Reihen: Anwendungen und Beispiele}
+\section*{Dezimalentwicklung reeller Zahlen}
+\section{Definition: Dezimalbruch}
+Ein Dezimalbruch ist eine Reihe der Form $(*)±\sum_{k=-N}^{∞} a_k\cdot 10^{-k} = ± a_{-N}...a_0\, a_1 a_2 ...$\\
+Mit $N \in \N_0, a_i =\{0..9\}$ Ziffern.\\
+\section{Satz}
+Jeder Dezimalbruch ist eine konvergente Reihe und stellt daher eine reelle Zahl dar. \\
+Umgekehrt lässt sich jedes $x\in \R$ als Dezimalbruch darstellen. (Diese Darstellung ist nicht zwingend eindeutig.)
+\subsection*{Beweis}
+\enum{
+	\item Konvergenz der Reihe (*):\\
+	$9\cdot \sum_{k=-N}^{∞} \left(\frac{1}{10}\right)^k$ ist konvergente Majorante.
+	\item Sei $x\in \R$ ohne Einschränkung $x > 0$:\\
+	\enum{
+		\item[1. Fall] $x\in [0, 1)$\\
+		Gesucht: Darstellung: $0, a_1\ a_2\ a_3$\\
+		Konstruiere $a_1, a_2$ rekursiv, so dass:
+		($\square$) $0, a_1 a_2 ... a_n ≤ x < 0, a_1 a_2 ... a_n +\frac{1}{10} \forall n \in \N$\\
+		Setze dazu $a_1 = \lfloor 10x \rfloor$, $a_1 ≤ 10x < a_1 + 1$\\
+		$a_1 \in \{0..9\}$ da $0≤ x < 1$ und $0,a_1 ≤ x < 0,a_1 + \frac{1}{10}$\\
+		Seien nun $a_1, ..., a_n$ bereits konstruiert $(n ≥ 2)$\\
+		$a_n = \lfloor 10^n (\underbrace{x-0,a_1...a_n-1 }_{=y_n})\rfloor \Rarr a_n ≤ 10^ny_n < a_n +1$\\
+		($\square$)$\Rarr 0≤y_n<\frac{1}{10^{n-1}} \Rarr a_n \in \{0..9\}$ und $\frac{a_n}{10^n} ≤ \frac{a_n}{10^n}$
+	}
+}

@@ -1,0 +1,83 @@
+% Kopfzeile beim Kapitelanfang:
+\fancypagestyle{plain}{
+%Kopfzeile links bzw. innen
+\fancyhead[L]{\calligra\Large Vorlesung Nr. 12}
+%Kopfzeile rechts bzw. außen
+\fancyhead[R]{\calligra\Large 21.11.2013}
+}
+%Kopfzeile links bzw. innen
+\fancyhead[L]{\calligra\Large Vorlesung Nr. 12}
+%Kopfzeile rechts bzw. außen
+\fancyhead[R]{\calligra\Large 21.11.2013}
+% **************************************************
+%
+\section{Cauchy-Kriterium für Reihen}
+$\sum_{k=1}^{∞} a_k$ konvergiert $\Leftrightarrow$ die Partialsummenformel $\left(s_n = \sum_{k=1}^{∞} a_k \right)_{n\in \N}$ ist Cauchy-Folge $\Leftrightarrow \forall \e > 0 \exists n_0\in \N : |s_n - s_m| < \e \forall n>m≥n_0$
+\section{Korrolar}
+Sei $\sum a_k$ konvergent $\Rarr \lim\limits_{k \to ∞} a_k = 0$\\
+Beweis mit Cauchy Kriterium mit $n = m+1$
+\section*{Achtung}
+\enum{
+	\item $\lim\limits_{k\to ∞} a_k = 0 \not\Rarr \sum_{k=1}^{∞} a_k$ konvergent
+	\item Ändert man endlich vieler Glieder einer Reihe (oder lässt man sie weg), so ändert dies die Konvergenzeigenschaften nicht. Der Reihenwert ändert sich im Allgemeinen schon.
+}
+\section{Regeln für konvergente Reihen}
+$\sum_{k=1}^{∞} a_k, \sum_{k=1}^{∞} b_k$ seien konvergent.\\
+$\Rarr$\\
+\enum{
+	\item $\sum_{k=1}^{∞} (a_k + b_k)$ konvergent, $\sum_{k=1}^{∞} (a_k + b_k) = \sum_{k=1}^{∞} a_k + \sum_{k=1}^{∞} b_k$
+	\item $\lambda \in \C \Rarr \sum_{k=1}^{∞} (\lambda a_k)$ konvergent gegen $\lambda \sum_{k=1}^{∞} a_k$\\
+	Produkte von Reihen, schwieriger $\to$ später
+}
+\section{Reihen mit positiven Gliedern}
+Sei $a_k \in \R$ mit $a_k ≥ 0\forall k \in \N$ Dann:\\
+$\sum_{k=1}^{∞} a_k$ konvergiert $\Leftrightarrow \left( s_n \sum_{k=1}^{∞} a_k \right)$ ist beschränkt.
+\section{Beispiele}
+\enum{
+	\item $\sum_{k=1}^{∞} \frac{1}{k^2}$ konvergiert.\\
+	$s_n = \sum_{k=1}^{∞} \frac{1}{k^2} ≤ 1 + \sum_{k=2}^{∞} \frac{1}{k(k-1)} = 1 + \sum_{k=1}^{n-1} \frac{1}{k(k-1)} ≤ 1 + 1 ≤ 2$\\
+	$\Rarr (s_n)$ beschränkt $\Rarr  = 1 + \sum_{k=1}^{∞} \frac{1}{k^2}$ konvergiert
+	\item Allgemein: $s \in \N, s ≥ 2 \Rarr \sum_{k=1}^{∞} \frac{1}{k^s}$ konvergiert (Übung)
+	\item \ul{Harmonische Reihe}: $\sum_{k=1}^{∞} \frac{1}{k}$ divergiert\\
+	Denn: $s_{2^n} = \sum_{k=1}^{∞} \sum_{k=1}^{2^n} \frac{1}{k} = 1 + \frac{1}{2} + \left(\frac{1}{3} + \frac{1}{4}\right) + \left(\frac{1}{5} + ... + \frac{1}{8}\right) + \left(\frac{1}{2^{n-1} + 1} + \frac{1}{2^n}\right)$\\
+	$>1 + \frac{1}{2} + 2 \cdot \frac{1}{4} + 4 \frac{1}{8} + ... + 2^{n-1} \frac{1}{2^n}$\\
+	$= 1 + n\cdot \frac{1}{2} \Rarr (s_n)$ ist unbeschränkt
+}
+\section{Leibniz-Kriterium für alternierende Reihen}
+Sei $(a_k) \subseteq \R$ mit $a_k ≥ 0 \forall k$ monoton fallende Nullfolge.\\
+$\Rarr$ \enum{
+	\item $\sum_{k=1}^{∞} (-1)^ka_k$ konvergiert
+	\item \ul{Fehlerabschätzung} $s= \sum_{k=0}^{∞} (-1)^k a_k \Rarr \left| s - \sum_{k=1}^{n-1}(-1)^ka_k \right| ≤ a_{n+1}$ 
+}
+\subsection*{Beweis}
+$s_n = a_0 + a_1 - a_2 + a_3...$\\
+$s_n -s_{n-2} = (-1)^n a_n + (-1)^{n-1} a_{n-1}$\\
+$s_n - s_{n-2} = (-1)^n \underbrace{(a_n - a_{n-1})}_{≤ 0}$\\
+Also: \\
+$n$ gerade $\Rarr$ $s_n < s_{n-2}$ d.h. $s_0 ≥ s_2 ≥ s_4...$\\
+$n$ ungerade $\Rarr s_n > s_{n-2}$ d.h. $s_1 ≤ s_3 ≤ s_5...$\\
+$\Rarr (s_{2n})$ ist monoton fallend und beschränkt, $(s_2n+1)$ ost monoton wachsend und beschränkt\\
+$\Rarr A:= \lim\limits_{n\to ∞} s_{2n}, B:= \lim\limits_{n\to ∞} s_{2n+1}$ existieren in $\R$\\
+$a_{2n} = s_{2n} - s_{2n-1} \to A - B$, Andererseits: $a_{2n} \to 0$ Also: $A = B = s$\\
+$\Rarr s_n \to s$ für $n \to ∞$. D.h. 1) ist gezeigt.\\
+Fehlerabschätzung: $s$ liegt zwischen $s_n$ und $s_{n+1}$
+\section{Beispiele: Alternierende Reihen}
+\enum {
+	\item $1-\frac{1}{2} + \frac{1}{3} - \frac{1}{4} ... = \sum_{k=1}^{∞} \frac{(-1)^{k-1}}{k}$ konvergiert nach Leibniz\\
+	Sei $s$ der Reihenwert $\Rarr |s - \sum_{k=1}^{n} \frac{(-1)^{k-1}}{k}| ≤ \frac{1}{n+1}$ Bemerkung: $s = ln(2)$
+	\item \ul{Leibniz-Reihe} $1 - \frac{1}{3} + \frac{1}{5} -\frac{1}{7}... = \sum_{k=1}^{∞} \frac{(-1)^k}{2k+1}$ konvergent nach Leibniz, gegen $\frac{\pi}{4}$
+}
+\section{Definition: Absolute Konvergenz}
+Eine Reihe $\sum_{k=1}^{∞} a_k $ $(a_k \in \C) $ heißt \ul{absolut konvergent}, falls $\sum_{k=1}^{∞} |a_k|$ konvergiert.
+\section{Majorantenkriterium}
+Sei $\sum_{k=1}^{∞} a_k$ Reihe mit $a_k \in \C$ mit $|a_k| ≤ b_k \forall k \in \N$ wobei $\sum_{k=1}^{∞} b_k$ konvergiere. (Konvergente Majorante)
+$\Rarr \sum_{k=1}^{∞} a_k$ ist konvergent und auch absolut konvergent, ferner gilt: \\
+$\left|\sum_{k=1}^{∞} a_k \right| ≤ \sum_{k=1}^{∞} |a_k| ≤ \sum_{k=1}^{∞} b_k$
+\section{Korrolar}
+Jede absolut konvergent Reihe ist konvergent.
+\section{Quotientenkriterium}
+Sei $\sum_{n=1}^{∞} a_n$ Reihe, $a_n \in \C$
+\enum{
+	\item es gebe $q \in \R$ mit $0 < q < 1$ und $n_0\in \N$ so, dass $\forall n ≥ n_0 : a_n ≠ 0$ und $\left| \frac{a_{n+1}}{a_n} \right| ≤ q \Rarr \sum_{n=1}^{∞} a_n$ absolut konvergent\\
+	\item Es geben $n_0 \in \N$ so dass $\forall n ≥ n_0 : a_n ≠ 0$ und $\left| \frac{a_{n+1}}{a_n} \right| ≥ 1 \Rarr \sum_{n=1}^{∞} a_n$ divergiert
+}
