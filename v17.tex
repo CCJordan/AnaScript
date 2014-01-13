@@ -1,0 +1,88 @@
+% Kopfzeile beim Kapitelanfang:
+\fancypagestyle{plain}{
+%Kopfzeile links bzw. innen
+\fancyhead[L]{\calligra\Large Vorlesung Nr. 16}
+%Kopfzeile rechts bzw. außen
+\fancyhead[R]{\calligra\Large 09.12.2013}
+}
+%Kopfzeile links bzw. innen
+\fancyhead[L]{\calligra\Large Vorlesung Nr. 16}
+%Kopfzeile rechts bzw. außen
+\fancyhead[R]{\calligra\Large 09.12.2013}
+% **************************************************
+%
+\section*{Stetigkeit komplexer Funktionen}
+\section{Definition}
+Sei $D\in \C, f: D\to \C$ heißt stetig in $z_0 \in D\Leftrightarrow \forall\e>0\exists \delta > 0: |f(z) - f(z_0)|< \e \forall z \in D mit |z-z_0|<\delta$
+%todo Schaubilder
+$f$ heißt stetig auf $D \Leftrightarrow f$ stetig in jedem $z \in D$
+\section{Folgenkriterium}
+$f:D\to \C$ stetig in $z_0 \in D \Leftrightarrow \forall \text{ Folge } (z_n) \subseteq D$ mit $z_n \to z_0$ gilt: $f(z_n) \to f(z_0)$\\
+Beweis: Wörtlich wie für reelle Funktionen\\
+\section{Beispiele}
+\enum{
+	\item Jedes Polynom $p(z) \in \P_\C$ ist stetig auf $\C$
+	\item $exp: \C \to \C, z\to e^z$ ist stetig auf $\C$
+}
+Die Regeln 9.3 sowie 9.6 (Summen, Produkte, Quotienten, Kompositionen) gelten entsprechend.
+\section{Korollar}
+$cos:\R \to \R$ und $sin:\R \to \R$ sind stetig auf $\R$
+\subsection*{Beweis:}
+(für cos, sin analog)\\
+Sei $x_0 \in \R, (x_n) \in \R$ mit $x_n \to x_0$\\
+$cos(x) = Re(e^{ix})$\\
+$x_n \to x_0 \Rarr ix_n \to ix_0~(im~\C) \Rarr e^{ix_n} \to e^{ix_0}$\\
+$cos(x_n) = Re(e^{ix_n}) \to Re(e^{ix_0}) = cos(x_0)$
+\section*{Grenzwerte bei Funktionen}
+\section{Definition}
+Sei $D\in \R, f:D\to \R$ Funktion und $x_0 \in \R$.\\
+Man sagt: $f$ konvergiert für $x\to x_0$ gegen $c\in \R \cup \{±∞\} \Leftrightarrow \forall \text{Folge }(x_n) \subseteq D$ mit $x_n \to x_0$ gilt $f(x_n) \to c$.\\
+Dabei wird vorausgesetzt, dass es mindestens eine Folge $(x_n) \in D$ gibt mit $x_n \to x_0$.\\
+c: \ul{Grenzwert} von $f$ in $x_0$\\
+Schreibweise:\\
+$\lim\limits_{x\to x_0}f(x) = c$ oder $f(x)\to c$ für $x \to x_0$\\
+Beachte:
+\enum{
+	\item Falls $x_0 in D \Rarr x_n \to x_0$  wählbar für alle $n$ (Konstante Folge)\\
+	Also $\lim\limits_{x\to x_0}f(x) = c \Rarr c = f(x_0)$ und $\lim\limits_{x\to x_0} f(x) = f(x_0) \Rarr f$ stetig in $x_0$
+	\item Falls $c\in \{±∞\}$ ist $\lim\limits_{x\to x_0} f(x) = c$ uneigentlicher Grenzwert
+}
+\section{Korollar}
+$\lim\limits_{x\to x_0} = c \in \R \Leftrightarrow \forall \e > 0 \exists \delta > 0: |f(x) - c| < \e \forall x \in D$ mit $|x-x_0| < \delta$
+\section{Einseitige Grenzwerte}
+Gegeben $f:D\to \R, x_0\in \R$\\
+$c\in \R \cup \{±∞\}$ heißt rechtsseitige Grenzwert von $f$ in $x_0 \Leftrightarrow \lim\limits_{x\in D: x>x_0} x\to x_0 f(x) = c$\\
+Schreibweise $\lim\limits_{x\downarrow x_0}$\\
+Analog: linksseitiger Grenzwert: $\lim\limits_{x\uparrow x_0} f(x)$
+\section{Beispiele}
+\enum{
+	\item $f(x) = \frac{x^2 - 1}{x-1} \Rarr \lim\limits_{x\to 1} f(x) = \lim\limits_{x\to 1} (x + 1) = 2$
+	\item $H(x) = \begin{cases}
+	1 & x ≥ 0\\
+	0 & x < 0
+	\end{cases}$\\
+	$\lim\limits_{x\uparrow 0} H(x)= 0$\\
+	$\lim\limits_{x\downarrow 0} H(x) = 1$
+	\item $f(x) = \frac{1}{x}$ auf $\R \setminus \{0\}$ \\
+	$\lim\limits_{x\downarrow 0} f(x) = +∞$\\
+	$\lim\limits_{x\uparrow 0} f(x) = -∞$
+	\item $\lim\limits_{x\to 0} \frac{e^x - x}{x} = 1$\\
+	Beweis:\\
+	$|e^x - 1 - x| ≤ |x|^2$ für $|x|≤1$ (Restgliedabschätzung)\\
+	$\Rarr \left|\frac{e^x-1}{x} -1\right| ≤ |x|$\\
+	Sei $(x_n) \subseteq \R\setminus \{0\}$ Folge mit $x_n \to 0$ \Rarr für $n$ groß genug:\\
+	$\left| \frac{e^x_n - 1}{x_n} -1\right| ≤ |x_n| \to 0 \Rarr \frac{e^x_n - 1}{x_n} \to 1$\\
+	\\
+	Alternativer Beweis:\\
+	Sei $\e > 0$ gegeben. $\Rarr \left| \frac{e^x - 1}{x} - 1 \right| < \e$ für alle $x ≠ 0$ mit $|x| < \e \underset{9.12}{\Rarr}$ Behauptung
+}
+\section{Grenzwerte für große $x$}
+Gegeben: $f:D\to \R, D \subseteq \R$ nach oben unbeschränkt\\
+$\lim\limits_{x \to +∞} f(x) = c \in \R \cup \{±∞\} \Leftrightarrow \forall (x_n) \subseteq D$ mit $x_n \to +∞$ gilt $f(x_n) \to c$
+\section{Regeln für Grenzwerte von Funktionen}
+Ergeben sich aus den Regeln für Grenzwerte von Folgen
+\enum{
+	\item $f(x) \dotplus g(x) \to a \dotplus b$
+	\item $f ≤ g$ auf $D \Rarr a≤b$\\
+	Ferner: $f(x) \to ±∞$ für $x\to x_0 \Rarr \frac{1}{f(x)} \to 0$ für $x\to x_0$
+}

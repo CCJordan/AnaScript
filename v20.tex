@@ -1,0 +1,75 @@
+% Kopfzeile beim Kapitelanfang:
+\fancypagestyle{plain}{
+%Kopfzeile links bzw. innen
+\fancyhead[L]{\Large Vorlesung 20 (19.12.2013)}
+%Kopfzeile rechts bzw. außen
+\fancyhead[R]{}}
+%Kopfzeile links bzw. innen
+\fancyhead[L]{\Large Vorlesung 20 (19.12.2013)}
+%Kopfzeile rechts bzw. außen
+\fancyhead[R]{}
+% **************************************************
+\enum{
+\setcounter{enumi}{5}
+\item $f(x)=|x|, x \in \R$\\
+\begin{tikzpicture}
+\draw[->] (-2,0)--(2,0);
+\draw[->] (0,-0.5)--(0,2);
+\draw[color=blue,domain=-2:2] plot (\x, {abs(\x)});
+\draw[color=blue] (2,1.5) node {$|x|$};
+\end{tikzpicture}\\
+$f$ ist differenzierbar auf $\R \setminus \{0\}$ mit $f'(x) = \left\{ \begin{array}{l l} 1 & x>0 \\ -1 & x<0 \end{array}\right.$\\
+$f$ ist nicht differenzierbar in $0$.\\
+$\lim_{x \downarrow 0} \frac{|x|-0}{x}=+1$\\
+$\lim_{x \uparrow 0} \frac{|x|-0}{x} = -1$
+}
+
+\section{Satz: Differenzierbarkeit und Stetigkeit}\label{11.3}
+$f$ sei differenzierbar in $x_0 \Rarr f$ ist stetig in $x_0$.\\
+
+\subsection*{Beweis}
+Sei $x \neq x_0$.\\
+$\Rarr f(x)-f(x_0) = \underbrace{\frac{f(x)-f(x_0)}{x-x_0}}_{\to f'(x_0)} \cdot \underbrace{(x-x_0)}_{\to 0} \to 0$ für $x \to x_0 \Rarr$ Behauptung \qed
+
+\section{Satz: Ableitungsregeln}
+Seien $f,g$ differenzierbar in $x_0 \in D$\\
+$\Rarr f+g, f \cdot g$ sind differenzierbar in $x_0$ und im Fall $g(x) \neq 0$ auch $\frac{f}{g}$.\\
+Dabei gelten:
+\enum{
+\item $(f+g)'(x) = f'(x)+g'(x)$\\
+$c \in \R \Rarr (c \cdot f)'(x) = c \cdot f'(x)$
+\item \underline{Produktregel}: $(fg)'(x) = f'(x) \cdot g(x)+f(x) \cdot g'(x)$
+\item \underline{Quotientenregel}: $\left(\frac{f}{g}\right)'(x) = \frac{f'(x) \cdot g(x) - f(x) \cdot g'(x)}{g(x)^2}$
+}
+\section{Beispiele}
+\enum{
+\item Sei $p(x) = a_n x^n + \ldots + a_1 x + a_0$ ein Polynom.\\
+$\underset{\text{\ref{11.2} + Regeln}}{\Rarr} p$ differenzierbar auf $\R$, $p'(x) = n \cdot a_n x^{n-1} + \ldots + a_1$
+\item $R(x) = \frac{p(x)}{q(x)} \Rarr R$ differenzierbar auf $\{x \in \R: q(x) \neq 0\}$\\
+Beispiel: $R(x) = \frac{1}{x^k} (k \in \N)$\\
+$\Rarr \forall x \in \R \setminus \{0\}$ ist $R'(x) \underset{\text{Q-R}}{=} - \frac{n \cdot x^{n-1}}{(x^n)^2} = -\frac{n}{x^{n+1}}$\\
+Beweis: $\frac{f(x+h) \cdot g(x+h) - f(x) \cdot g(x)}{h} = \underbrace{\frac{f(x+h) - f(x)}{h}}_{\to f'(x)} \cdot \underbrace{g(x+h)}_{\to g(x)} + f(x) \cdot \underbrace{\left(\frac{g(x+h)-g(x)}{h}\right)}_{\to g'(x)}$ für $h \to 0$
+\item $\left(\frac{1}{g}\right)'(x) = \lim_{h \to 0} \frac{\frac{1}{g(x+h)} - \frac{1}{g(x)}}{h} = \lim_{h \to 0} \frac{g(x)-g(x+h)}{h \cdot g(x+h) \cdot g(x)} = -\frac{g'(x)}{g(x)^2}$\\
+$\Rarr \left(\frac{f}{0}\right)' \underset{\text{Produktr.}}{=} \frac{f'}{g} + f \cdot \left(\frac{-g'}{g^2}\right) = \frac{f'g-fg'}{g^2}$
+}
+
+\section{Satz: Kettenregel}
+Seien $f: D \to E$ und $g: E \to \R$ Funktionen.\\
+$f$ sei differenzierbar in $x_0 \in D$, $g$ sei differenzierbar in $f(x_0)$\\
+$\Rarr g \circ f$ ist differenzierbar in $x_0$ mit \fbox{$(g \circ f)'(x_0) = g'(f(x_0)) \cdot \underbrace{f'(x_0)}_{\text{Nachdiff. von } f}$}
+
+\section{Beispiele}
+\enum{
+\item $p_s(x) = x^s$ mit $x>0$ und $s \in \R$\\
+$p_s(x) = e^{s \cdot ln(x)}$\\
+Kettenregel mit $f(x) = ln(x)$, $g(y)=e^{sy}$\\
+$\overset{ln'(x)=\frac{1}{x}}{\Rarr} p_s'(x) = s \cdot e^{s \cdot ln(x)} \cdot \frac{1}{x} = s \cdot x^{s-1}$
+\item $f$ differenzierbar in $x \in \R \Rarr (e^{f(x)})' = e^{f(x)} \cdot f'(x)$
+\item $f>0 \Rarr (ln(f))' = \frac{f'}{f}$ ``logarithmische Ableitung von $f$''
+}
+
+\section*{Idee zum Beweis der Kettenregel}
+$\frac{g(f(x)) - g(f(x_0))}{x-x_0} = \underbrace{\frac{g(f(x))-g(f(x_0))}{f(x)-f(x_0)}}_{\overset{\text{?}}{\to} g'(f(x_0))} \cdot \underbrace{\frac{f(x)-f(x_0)}{x-x_0}}_{\to f'(x_0) \text{ für } x \to x_0}$\\
+Nicht präzise, da für $x \to x_0$ ($x \neq x_0$) zwar $f(x) \to f(x_0)$ gilt,\\
+aber $f(x)=f(x_0)$ in einer Umgebung von $x_0$ sein kann (z.B. falls $f$ konstant $\Rarr$ Division durch $0$).\\
+Dies kann repariert werden. \qed

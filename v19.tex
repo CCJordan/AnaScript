@@ -1,0 +1,90 @@
+% Kopfzeile beim Kapitelanfang:
+\fancypagestyle{plain}{
+%Kopfzeile links bzw. innen
+\fancyhead[L]{\calligra\Large Vorlesung Nr. 19}
+%Kopfzeile rechts bzw. außen
+\fancyhead[R]{\calligra\Large 16.12.2013}
+}
+%Kopfzeile links bzw. innen
+\fancyhead[L]{\calligra\Large Vorlesung Nr. 19}
+%Kopfzeile rechts bzw. außen
+\fancyhead[R]{\calligra\Large 16.12.2013}
+% **************************************************
+%
+\setcounter{chapter}{10}
+\setcounter{section}{4}
+\section{Lemma: Der natürliche Logarythmus}
+$exp: \R \to (0,∞), x \mapsto e^x$ ist stetig, streng monoton wachsend und bijektiv
+\subsection*{Beweis}
+Stetigkeit: Satz 9.5\\
+Strenge Monotonie\\
+Sei $x\in \R, h > 0 \Rarr e^{x+h} - e^x = e^x(e^h - 1) = e^x \cdot \sum_{k=1}^{∞}\frac{h^k}{k!} > 0$ \\
+$\Rarr exp$ ist injektiv.\\
+$\lim\limits_{x\to ∞} e^x = ∞$\\
+$\lim\limits_{x\to -∞} e^x = 0$\\
+exp stetig $\Longrightarrow_{ZWS} exp$ nimmt jeden Wert aus $(0,∞)$ an $\Rarr exp surjektiv$
+\ul{Konsequenz:} $exp: \R \to (0,∞)$ hat eine Umkehrfunktion:\\
+$ln:(0,∞) \to \R$ \ul{natürlicher Logarythmus}\\
+$ln$ ist stetig, streng monoton wachsend und bijektiv.\\
+Spezielle Werte:\\
+$ln(1) = 0$\\
+$ln(e) = 1$\\
+$\lim\limits_{x\searrow 0} ln(x) = -∞, \lim\limits_{x\to ∞} ln(x) = ∞$\\
+\begin{tikzpicture}[scale=0.85, prefix="plots/", smooth]
+    \draw[very thin,color=gray] (-3.1,-3.1) grid (4.1,4.1);
+    \draw[->] (-3.2,0) -- (4.2,0) node[right] {$x$};
+    \draw[->] (0,-3.1) -- (0,4.2) node[right] {$y$};
+    \draw[color=red, domain=-3:1.5] plot[id=v19g1] function{exp(x)} node[right] {$exp(x)$};
+    \draw[color=blue, domain=0:3.8, samples=2000] plot[id=v19g2] function{log(x)/log(exp(1))} node[right] {$ln(x)$};
+\end{tikzpicture}
+\section{Satz}
+Seien $x, y > 0$.
+\enum{
+	\item $ln(xy) = ln(x) + ln(y)$
+	\item $ln\left( \frac{1}{x} \right) = -ln(x)$
+	\item $\lim\limits_{x\to 0} \frac{ln(x+1)}{x} = 1$ %TODO Prüfen ob das nicht x \to ∞ sein sollte
+}
+\section*{Exponentialfunktionen zu allgemeinen Basen}
+Sei $a\in\R, a>0$ Ziel: Definition $a^x, x \in \R$\\
+$x= \frac{p}{q}, p\in\Z, q\in \N \Rarr a^\frac{p}{q} := \sqrt[q]{a^p} = \sqrt[q]{(e^{ln(a)})^p} \underset{FG}{=} \sqrt[q]{e^{p\cdot ln(a)}} = e^{\frac{p}{q} ln(a)}$
+\section{Definition}
+$exp_a (x) = a^x = e^{x \cdot ln(a)}$ Explonentialfunktion zur Basis a > 0.
+\section{Eigenschaften}
+\enum{
+	\item $a^0 = 1$\\
+	$q\in\N \Rarr \sqrt[q]{a} = a^\frac{1}{q}$
+	\item $a^{x+y} = a^x \cdot a^y$\\
+	$a^{-x} = \frac{1}{a^x}$
+	\item $a,b > 0 \Rarr a^xb^x = (ab)^x$\\
+	$(a^x)^y = a^{xy}$
+	\item $exp_a: \R \to (0,∞)$ bijektiv und stetig
+	\item a>1 $\underset{ln(a) > 0}{\Longrightarrow}$ streng monoton wachsend auf $\R$\\
+	a<1 $\underset{ln(a) < 0}{\Longrightarrow}$ streng monoton fallend auf $\R$\\
+}
+Konsequenz aus 4 und 5: $exp_a: \R \to (0,∞)$ hat eine Umkehrfunktion: $$log_a:(0,∞) \to \R$$
+\section{Potenzfunktionen}
+Fixiere Exponenten $s\in \R$\\
+$P_s(x) = x^s = e^{ln(x) \cdot s}, x\in (0,∞)$\\
+Speziell: $p_\frac{1}{2}(x) = \sqrt{x}, p_{-1}(x) = \frac{1}{x}$
+\chapter{Differentialrechnung}
+\section*{Die Ableitung}
+\section{Definition}
+Sei $D\subseteq \R, f: D \to \R$ Funktion\\
+$f$ heißt \ul{differenzierbar} in $x_0\in D$ falls $f'(x_0) := \lim\limits_{x\to x_0} \frac{f(x) - f(x_0)}{x - x_0} \in \R$ existiert.
+Gleichung der Geraden durch $p_0$ und $p$:\\
+$s(t) = f(x_0) + \frac{f(x) - f(x_0)}{x-x_0} \cdot (t-x_0) \text{ mit } t\in \R$\\
+Falls $f'(x)$ existiert, so geht mit $x\to x_0$ die Sekante in die Tangente an den Graphen $\Gamma_f$ im Punkt $p_0$ über. \\
+Die Gleichung der Tangente ist: $T(t) = f(x_0) + f'(x_0) \cdot (t-x_0)$
+\section{Beispiele}
+\enum{
+	\item $f: \R \to \R, f(x) = c$ (Konstante Funktion mit $c \in \R$)\\
+	$f(x) - f(x_0) = 0 \forall x \Rarr f$ differenzierbar auf $\R$ mit $f'\equiv 0$ (identisch 0)
+	\item $f(x) = x^n$ ($n\in \N$), ($x_0 \in \R$)\\
+	$\frac{x^n - x^n_0}{x-x_0} = x^{n-1} + x_0x^{n-2} + ... + x_0^{n-2} + x_0^{n-1}$\\
+	$\underset{x\to x_0}{\longrightarrow} nx^{n-1}_0$
+	$\Rarr f$ differenzierbar auf $\R, f'(x) = \frac{d}{dx} (x^n) = nx^{n-1}$
+	\item $f(x) = e^{ax}$ mit $a \in \R \Rarr f$  differenzierbar auf $\R$ mit $\frac{d}{dx}\left(e^{ax}\right) = ae^{ax}$
+	\item $ln'(x) = \frac{1}{x}$
+	\item $sin'(x) = cos(x)$
+	$cos'(x) = -sin(x)$
+}

@@ -1,0 +1,69 @@
+\section{Beispiele} Ausgelassen
+\section*{Sätze über stetige Funktionen}
+Erinnerung $f:D\to \R$ stetig in $x_0 \in D \Leftrightarrow \forall \e > 0 \exists \delta > 0: |f(x) - f(x_0)|< \e\forall x \in D$ mit $|x-x_0|<\delta$
+\section{Zwischenwertsatz}
+Seien $a, b \in \R$ mit $a<b$ und $f:[a, b] \to \R$ stetig $\Rarr f$ nimmt jeden Wert zwischen $f(a)$ und $f(b)$ an.\\
+%todo schaubild
+Das heißt: $\gamma$ zwischen $f(a)$ und $f(b) \Rarr \exists x \in [a, b]: f(x) = \gamma$\\
+\subsection*{Beweis}
+Sei etwa $f(a) ≤ f(b)$ ohne Einschränkung $f(a) < \gamma < f(b)$\\
+$M:= \{t\in [a,b]:f(t) ≤ \gamma\}$\\
+$M≠\emptyset$ (da $a\in M$), beschränkt $\Rarr x:= sup(M)$ existiert, $x\in [a, b]$\\
+\ul{Behauptung$ f(x) = \gamma$}\\
+Dazu $x= sup(M) \Rarr \exists \text{Folge} (t_n) \subseteq M: x- \frac{1}{n} < t_n ≤ x$\\
+$\lim\limits_{n\to ∞} t_n = x; f(t_n) ≤ \gamma$\\
+$f$ stetig $\Rarr f(x) = \lim f(t_n) ≤ \gamma < f(b)$ insbesondere $x<b$\\
+Wähle Folge $(s_n)$ in (x,b] mit $s_n \to x \Rarr f(s_n) > \gamma (s_n \notin M)$ und $f(x) = \lim f(s_n) ≥ \gamma$ (Vergleichskriterium 5.8)\\
+Zus: $f(x) = \gamma$
+\section{Satz}
+Sei $p \in \P_\R$ reelles Polynom ungeraden Grades $\Rarr p$ hat mindestens eine reelle Nullstelle\\
+\subsection*{Beweis}
+$p$ habe o. E. Leitkoeffizienten = 1, d.h. $p(x)= x^n + a_{n-1}x^{n-1} + ... + a_0$\\
+$\underset{x≠0}{=}x^n\underbrace{\left( 1 + \frac{a_{n-1}}{x} + ... + \frac{a_0}{x_n}\right)}_{=:h(x)}$\\
+$\lim\limits_{x\to ±∞} h(x) = 1$\\
+$\Rarr \exists s > 0: h(s) > 0$\\
+$\Rarr \exists r < 0: h(r) > 0$\\
+$\Rarr p(s) = s^n \cdot h(s)>0; p(r) = r^n \cdot h(r) < 0$\\
+ZWS $\Rarr \exists x \in [r, s]: p(x) = 0 \qed$\\
+\subsection*{Bezeichnungen}
+\enum{
+	\item Ein angeschlossenes beschränktes Intervall $[a, b] \subseteq \R$ heißt auch \ul{kompakt}.
+	\item Eine Funktion $f:D\to \R$ heißt beschränkt $\Leftrightarrow \exists M >0 |f(x)|≤ M \forall x \in D$
+}
+\section{Satz von Maximum und Minimum}
+Sei $[a,b] \subseteq \R$ kompaktes Intervall, $f: [a,b] \to \R$ stetig $\Rarr f$ beschränkt und $\exists x_1, x_2 \in [a, b]: \forall x \in [a, b]$ gilt:\\
+$f(x_1) ≤ f(x) ≤ f(x_2)$
+\subsection*{Beweis}
+Nachweis des Maximums (Minimum analog)\\
+$s:= sup(f(x):x\in [a,b]) \in \R \cup \{+∞\}$\\
+$s:= +∞$ falls $f$ nach oben unbeschränkt\\
+Definition von $sup \Rarr \exists $ Folge $(x_n) \subseteq [a,b]: f(x_n) \to s$\\
+$(x_n)$ beschränkt \Rarr (Bolzano-Weierstraß) $(x_n)$ hat eine konvergente Teilfolge $(x_{n_k})$\\
+Sei $x_{n_k} \to x\in \R$ $a≤ x_{n_k} ≤ b \forall k \Rarr a≤x≤b$\\
+$f$ stetig $\Rarr f(x_{n_k}) \to f(x) \Rarr s = f(x) < ∞$ und $s = max(f(x)) x\in [a,b]$\\
+\chapter{Monotone Funktionen und ihre Umkehrfunktionen}
+\section{Definition}
+Sei $D\subseteq \R; f: D \to \R$ heißt monoton wachsend [fallend] $\Leftrightarrow \forall x, y\in D$ mit $x < y$ gilt $f(x) ≤[≥] f(y)$\\
+Ist sogar stets $f(x) <[>] f(y)$ so heißt $f$ streng monoton wachsend [fallend].
+\section{Lemma}
+Sei $f: D\to \R$ streng monoton wachsend [fallend] $\Rarr f: D \to f(D) = \{f(x) : x\in D\}$ ist bijektiv und $f^{-1} : f(D) \to D$ ist streng monoton wachsend [fallend]\\
+\subsection{Beweis}
+$x<y \Leftrightarrow f(x) < f(y)$ (*)\\
+(zu "$\Leftarrow$" $x ≥ y \underset{s.m.w.}{\Rarr} f(x) ≥ f(y) \lightning$)\\
+$\Rarr f$ injektiv, also $f:D\to f(D)$ bijektiv und aus $\Leftarrow$ in (*)$f^{-1}$ s.m.w.\\
+\section{Satz}
+Sei $f: [a, b]\to \R$ streng monoton wachsend und stetig $\Rarr f:[a, b] \to [f(a), f(b)]$ bijektiv und $f^{-1}$ ist ebenfalls streng monoton wachsend und stetig.\\
+Sei $y_0 \in [f(a), f(b)], y_0 = f(x_0)$\\
+Hier: Fall $a< x_0 < b$ ($x_0 \in \{a, b\}$ analog)\\
+Sei $\e > 0$ gegeben, o.E. so klein, dass $(x_0 - \e, x_0 + \e) \subseteq [a, b]$\\
+$\alpha = f(x_0 - \e), \beta := f(x_0 + \e)$\\
+$\alpha < y_0 < \beta$ ($f$ streng monoton wachsend)\\
+Sei $y \in [\alpha, \beta] \Rarr f^{-1}(\alpha) ≤ f^{-1}(y) ≤ f^{-1}(\beta)$\\
+$\Rarr |f^{-1} (y) - f^{-1}(y_0)|< \epsilon \forall y\in [\alpha, \beta]$\\
+$\Rarr f^{-1}$ stetig in $y_0$
+\section{Beispiele}
+\ul{Wurzelfunktion}\\
+Sei $k \in \N$ fest.\\
+Potenzfunktion: $f(x) = x^k, [0, ∞) \to [0, ∞)$\\
+$f$ stetig und streng monoton wachsend, f auch bijektiv, denn: $y ≥ 0 \Rarr \exists! x≥ 0: x^k = y$ nämlich $x = \sqrt[k]{y}$\\
+Umkehrfunktion: $f^{-1} = x\mapsto \sqrt[k]{x}, [0,∞) \to [0,∞)$ k-Wurzelfunktion

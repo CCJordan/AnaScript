@@ -1,0 +1,64 @@
+% Kopfzeile beim Kapitelanfang:
+\fancypagestyle{plain}{
+%Kopfzeile links bzw. innen
+\fancyhead[L]{\calligra\Large Vorlesung Nr. 21}
+%Kopfzeile rechts bzw. außen
+\fancyhead[R]{\calligra\Large 05.01.2014}
+}
+%Kopfzeile links bzw. innen
+\fancyhead[L]{\calligra\Large Vorlesung Nr. 21}
+%Kopfzeile rechts bzw. außen
+\fancyhead[R]{\calligra\Large 05.01.2014}
+% **************************************************
+%
+\section{Satz: Ableitung der Umkehrfunktion}
+Sei $f:D\to \R$ stetig, streng monoton und differenzierbar in $x_0 \in D$ mit $f'(x_0) ≠ 0 \Rarr$ $f^{-1}$ ist differenzierbar in $y_0 = f(x_0)$ mit 
+$$(f^{-1})(y_0) = \frac{1}{f'(x_0)} = \frac{1}{f'(f^{-1}(y_0))}$$
+\subsection{Beweis:}
+Satz 10.3 und Lemma 10.2 $\Rarr$ $f:D\to f(D)$ bijektiv und $f^{-1}$ stetig.\\
+Betrachte $y_0, y \in f(D), y ≠ y_0, y \to y_0 \Rarr x = f^{-1}(y) \to f^{-1}(y_0) = x_0$\\
+$\lim\limits_{y\to y_0} \frac{f^{-1}(y) - f^{-1}(y_0)}{y-y_0} = \lim\limits_{x\to x_0} \frac{x-x_0}{f(x) - f(x_0)} = \frac{1}{f'(x_0)}$ \qed
+\section*{Höhere Ableitungen}
+Betrachte $f:D\to\R, x_0\in D.~f$ sei differenzierbar auf einem Intervall $(x_0 - \e, x_0 + \e)$ um $x_0$. Ist $f'$ differenzierbar in $x_0$ so heißt $f$ zweimal differenzierbar in $x_0$.\\
+Bezeichnung: $f''(x_0) = \frac{d^2}{dx^2}f(x_0) = (f')'(x_0)$\\
+Für $n ≥ 2$: n-te Ableitung von $f$ in $x_0: f^{(0)}:= f$\\
+$f^{(n)}(x_0) := (f^{n-1})'(x_0)$ sofern existent.\\
+$f$ heißt dann $n$-mal differenzierbar.
+\section*{Extrema und Mittelwertsatz}
+\section{Definition: Extrema}
+Sei $f:D\to\R$ Funktion $f$ hat in $x_0\in D$ ein
+\desc{globales Maximum}{$f(x) ≤ f(x_0) \forall x \in D$}
+\desc{lokales Maximum}{$\exists \e > 0: f(x)≤ f(x_0) \forall x\in D$ mit $|x-x_0| < \e$}
+Dieses heißt isoliert falls zusätzlich $f(x)<f(x_0) \forall x\in D$ mit $|x-x_0|< \e, x≠x_0$
+\section{Notwendiges Kriterium für lokale Extrema}
+Sei $f: (a,b) \to \R$ differenzierbar in $x_0 \in (a,b)$\\
+$f$ habe in $x_0$ lokale Extrema $\Rarr f'(x_0) = 0$\\
+\section{Vorgehen bei der Suche nach Extrema}
+Sei $f:[a,b] \to \R$ stetig.\\
+Satz v. Maximum und Minimum $\Rarr$ $f$ nimmt auf $[a,b]$ ein globales Maximum und ein globales Minimum an.\\
+Kandidaten:
+\enum{
+	\item Punkte $x\in (a,b)$, wo $f$ differenzierbar mit $f'(x) = 0$
+	\item Randpunkte $a, b$
+	\item Punkte in denen $f$ nicht differenzierbar
+}
+Falls $fI \to \R$, $I$ unbeschränktes Intervall: Untersuche auch $\lim\limits_{x\to ±∞} f(x)$
+\section{Mittelwertsatz der Differenzialrechnung}
+$f:[a,b] \to \R$ sei stetig auf $[a,b]$ und differenzierbar auf $(a,b)$\\
+$\Rarr \exists \xi \in (a,b)$: $f(\xi) = \frac{f(b) - f(a)}{b-a}$
+Spezialfall: Satz von Rolle $f(a) = f(b) \Rarr \exists \xi \in (a,b): f'(\xi) = 0$
+\subsection*{Beiweis: (Satz von Rolle)}
+$f$ stetig auf $[a,b] \Rarr f$ nimmt auf $[a,b]$ ein globales Maximum und ein Minimum an.\\
+Falls beide am Rand $\Longrightarrow_{f(a) = f(b)}$ $f$ ist konstant.\\
+Andernfalls nimmt $f$ ein Extremum in einem $\xi \in (a,b)$ an \Rarr $f'(\xi) = 0$
+\section{Monotonieverhalten}
+Sei $f:(a,b)\to \R$ differenzierbar
+\enum{
+	\item $f'>0$ auf $(a, b)$ \Rarr $f$ streng monoton wachend auf $(a,b)$
+	\item $f'<0$ auf $(a, b)$ \Rarr $f$ streng monoton fallend auf $(a,b)$
+	\item $f'≥0$ auf $(a, b)$ \Rarr $f$ monoton wachend auf $(a,b)$
+	\item $f'≤0$ auf $(a, b)$ \Rarr $f$ monoton fallend auf $(a,b)$
+	\item $f'\equiv 0$ auf $(a, b)$ \Rarr $f$ konstant auf $(a,b)$
+}
+\section{Korrolar}
+$f:\R \to \R$ sei differenzierbar und erfülle $f' = a\cdot f$ auf $\R$ mit einer Konstanten $a\in \R \Rarr f(x) = c = e^{ax}$ mit $c=f(0)$.

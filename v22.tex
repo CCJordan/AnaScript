@@ -1,0 +1,52 @@
+\section{Kriterium für lokale Extrema}
+Sei $f:(a,b)\to \R$ differenzierbar und in $x_0\in (a,b)$ zwei mal differenzierbar.\\
+Sei $f'(x_0) = 0$ und $f''(x_0)>0 \Rarr f$ hat in $x_0$ ein lokales Minimum, bzw. im umgekehrten Fall ein lokales Maximum.\\
+Obacht: \"$\Leftarrow$\" gilt nicht.\\
+Beispiel:\\
+$f(x)x^4$ hat ein lokales Minimum in $x_0 = 0$, aber $f'(0) = f''(0) = 0$
+\subsection*{Beweis}
+$f''(x_0) = \lim\limits_{x\to x_0} \frac{f'(x) - f'(x_0)}{x-x_0} > 0$\\
+$\Rarr \exists \e > 0: \frac{f'(x)-f'(x_0)}{x-x_0}>0 \forall x\in (x_0-\e, x_0 + \e), x≠x_0$\\
+Da $f'(x_0) = 0$ folgt \\
+$f'(x)>0$ auf $(x_0, x_0+\e)$ d.h. $f$ dort streng monoton wachsend\\
+$f'(x)<0$ auf $(x_0-\e, x_0)$ d.h. $f$ dort streng monoton fallend\\
+$\Rarr$ Behauptung \qed
+\section{Regel von L'Hospital}
+$f,g:(a,b) \to \R$ seien differenzierbar mit $g'(x) ≠ 0 \forall x\in (a,b)$\\
+Es gelte:
+\enum{
+\item $f(x)\to 0$ und $g(x) \to 0$ für $x\downarrow a$ \ul{oder}
+\item $g(x)\to ±∞$ für $x\downarrow a$
+}
+$\Rarr \lim\limits_{x\downarrow a} \frac{f(x)}{g(x)} = \lim\limits_{x\downarrow a} \frac{f'(x)}{g'(x)}$\\
+Sofern der Grenzwert von rechts in $\R \cup ±∞$ existiert.\\
+Entsprechendes gilt für $x\uparrow b$, $x\to ∞$\\
+$\lim\lim\limits_{x\to 0}\left( \frac{1}{x} - \frac{1}{sin(x)} \right) = \lim\limits_{x\to 0} \frac{sin(x) - x}{x\cdot sin(x)} = \lim\limits_{x\to 0} \frac{cos(x)-1}{x\cdot cos(x) + sin(x)} = \lim\limits_{x\to 0} \frac{-sin(x)}{2cos(x) - x \cdot sin(x)} = 0$
+\section*{Konvexität}
+\section{Definition}
+Sei $D\subseteq \R$ Intervall\\
+$f:D\to\R$ Konvex $\Leftrightarrow \forall x,y \in D \text{ und } \lambda \in (0,1) \text{ gilt } f(\lambda x + (1-\lambda)y) ≤ \lambda f(x) + (1-\lambda)f(y)$\\
+$f$ konkav auf $D \Rarr$ ≥ in obriger Ungleichung.
+\section{Konvexitätskriterium}
+Sei $f:(a,b) \to \R$ zwei mal differenzierbar, $-∞≤a<b≤+∞$\\
+Dann:\\
+$f$ konvex $\Leftrightarrow f''≥0$ auf $(a,b)$\\
+$f$ konkav $\Leftrightarrow f''≤0$ auf $(a,b)$\\
+\chapter{Trigonometrische Funktionen und Polarkoordinaten}
+Erinnerung: $x\in \R \Rarr |e^{ix}| = 1$\\
+$cos(x) = Re(e^{ix}) = \frac{e^{ix} + e^{-ix}}{2}$\\
+$sin(x) = Im(e^{ix}) = \frac{e^{ix} - e^{ix}}{2i}$
+\section{Satz und Definition: Die Kreiszahl π}
+$cos(x)$ hat auf $[0,2]$ genau eine Nullstelle. Diese wird mit $\frac{π}{2}$ bezeichnet.\\
+$π:\text{Kreiszahl}, π \approx 3,1415$\\
+π ist irrational sogar transzendent.
+\section{Korollar: Periodizität von exp}
+$z\in \C\Rarr e^{z+πi} = e^{z}$\\
+$e^{z+iπ} = -e^{z}$\\
+$e^{z±\frac{iπ}{2}} = ±ie^{z}$\\
+\section{Korollar}
+$cos(x + 2π) = cos(x)$
+$sin(x + 2π) = sin(x)$
+\section{Satz}
+$cos$ hat auf $\R$ genau die Nullstellen: $\frac{π}{2} + kπ$ mit $k\in\Z$\\
+$sin$ hat auf $\R$ genau die Nullstellen: $kπ$ mit $k\in\Z$
